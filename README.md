@@ -1,7 +1,6 @@
 # GRUPO2
 
 ## Descripcion del proyecto 
-==========================
 
 **Sera una aplicacion web para controlar en tiempo real, temperatura y humedad de plantas.**
 
@@ -25,7 +24,6 @@ Hasta aqui es lo que deberiamos hacer. (Para agregar o editar contenido de este 
 
 
 ## Preguntas Frecuentes
-======================
 
 **¿Qué es NodeMCU?**
 
