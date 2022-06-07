@@ -1,4 +1,4 @@
-public class Usuarios {
+public class Usuario {
 
     //declaracion de variables
     private Integer id;
@@ -8,10 +8,10 @@ public class Usuarios {
     private Integer region_id;
 
     //constructores
-    public Usuarios() {
+    public Usuario() {
     }
 
-    public Usuarios(Integer id, String nombre, String correo, String contraseña, Integer region_id) {
+    public Usuario(Integer id, String nombre, String correo, String contraseña, Integer region_id) {
         this.id = id;
         this.nombre = nombre;
         this.correo = correo;

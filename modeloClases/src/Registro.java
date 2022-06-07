@@ -1,4 +1,4 @@
-public class Registros {
+public class Registro {
 
     //declaracion de variables
     private Integer id;
@@ -7,10 +7,10 @@ public class Registros {
     //constructores
 
 
-    public Registros() {
+    public Registro() {
     }
 
-    public Registros(Integer id, Integer planta_id) {
+    public Registro(Integer id, Integer planta_id) {
         this.id = id;
         this.planta_id = planta_id;
     }
