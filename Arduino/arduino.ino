@@ -10,8 +10,8 @@
 DHT dht(dht_dpin, DHTTYPE);
 
 //Conectarse a Wifi
-const char* ssid = "Pebre";
-const char* password = "Olivia957";
+const char* ssid = "tu red";
+const char* password = "tu clave";
 
 // Conectarse a Wifi
 
