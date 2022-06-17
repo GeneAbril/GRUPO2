@@ -4,6 +4,9 @@
 
 **Sera una aplicacion web para controlar en tiempo real, temperatura y humedad de plantas.**
 
+
+![Diagrama](/assets/diagrama.png)
+
 Para esto utilizaremos un microcontrolador NodeMCU el cual usa un modulo ESP8266 para conectarse a internet vía wifi, tambien necesitamos un sensor de temperatura y humedad DTH 11, el cual nos entregara los datos que necesitamos.
 
 Programaremos el NodeMCU con el IDE de Arduino e importaremos las librerias que necesitaremos. (Podras encontrar el codigo dentro de la carpeta Arduino).

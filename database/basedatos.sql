@@ -13,52 +13,48 @@ create table usuarios(
 id int PRIMARY KEY AUTO_INCREMENT,
 nombre varchar(50),
 correo varchar(80),
-passwprd varchar(50),
-region_id int
+clave varchar(50)
 );
 
--- REGIONES
-create table regiones(
-id int PRIMARY KEY AUTO_INCREMENT,
-nombre varchar(50)
+CREATE table dispositivos(
+id int NOT NULL AUTO_INCREMENT,
+nombre varchar(30),
+temperatura float,
+usuario_id int,
+primary key(id),
+foreign key(usuario_id) references usuarios(id)
+);
+
+-- TABLA RELACIONAL DISPOSITIVO PLANTA
+CREATE table dispositivo_usuario(
+id int NOT NULL AUTO_INCREMENT,
+dispositivo_id int,
+usuario_id int,PRIMARY KEY(id),
+foreign key(dispositivo_id) references dispositivos(id),
+foreign key(usuario_id) references usuarios(id)
 );
 
 -- PLANTAS
 create table plantas(
 id int PRIMARY KEY AUTO_INCREMENT,
 nombre varchar(50),
-usuario_id int -- FK usuarios
+dispositivo_id int -- FK usuariosforeign key(dispositivo_id) references dispositivos(id)
 );
 
 -- REGISTROS
 create table registros(
 id int PRIMARY KEY AUTO_INCREMENT,
-temperatura float,
-humedad float,
-planta_id int -- FK plantas
+dispositivo_id int -- FK dispositivosforeign key(dispositivo_id) references dispositivos(id)
 );
 
 -- FOREIGN KEYS:
--- USUARIO > REGION
-ALTER TABLE usuarios ADD CONSTRAINT FK_region_id FOREIGN KEY (region_id) REFERENCES regiones(id);
--- PLANTA > USUARIO
-ALTER TABLE plantas ADD CONSTRAINT FK_usuario_id FOREIGN KEY (usuario_id) REFERENCES usuarios(id);
--- REGISTRO > PlANTA
-ALTER TABLE registros ADD CONSTRAINT FK_planta_id FOREIGN KEY (planta_id) REFERENCES plantas(id);
-
-INSERT INTO regiones (nombre) VALUES
-('ARICA Y PARINACOTA'),
-('TARAPACA'),
-('ANTOFAGASTA'),
-('ATACAMA'),
-('COQUIMBO'),
-('VALPARAISO'),
-('DEL LIBERTADOR GRAL. BERNARDO OHIGGINS'),
-('DEL MAULE'),
-('DEL BIOBIO '),
-('DE LA ARAUCANIA'),
-('DE LOS RIOS'),
-('DE LOS LAGOS'),
-('AISEN DEL GRAL. CARLOS IBANEZ DEL CAMPO'),
-('MAGALLANES Y DE LA ANTARTICA CHILENA'),
-('METROPOLITANA DE SANTIAGO');
+-- DISPOSITIVOS > USUARIO
+ALTER TABLE dispositivos ADD CONSTRAINT FK_usuario_id FOREIGN KEY (usuario_id) REFERENCES usuarios(id);
+-- DISPOSITIVO_USUARIO > USUARIO
+ALTER TABLE dispositivo_usuario ADD CONSTRAINT FK_usuario2_id FOREIGN KEY (usuario_id) REFERENCES usuarios(id);
+-- DISPOSITIVO_USUARIO > DISPOSITIVOS
+ALTER TABLE dispositivo_usuario ADD CONSTRAINT FK_dispositivo_id FOREIGN KEY (dispositivo_id) REFERENCES dispositivos(id);
+-- PLANTAS > DISPOSITIVOS
+ALTER TABLE plantas ADD CONSTRAINT FK_dispositivo2_id FOREIGN KEY (dispositivo_id) REFERENCES dispositivos(id);
+-- REGISTROS > DISPOSITIVOS
+ALTER TABLE REGISTROS ADD CONSTRAINT FK_dispositivo3_id FOREIGN KEY (dispositivo_id) REFERENCES dispositivos(id);

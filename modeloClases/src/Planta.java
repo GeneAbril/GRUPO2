@@ -1,28 +1,40 @@
-public class Planta {
-    private int id;
-    private String nombre;
-    private float temperatura;
-    private float humendad;
-    private int usuario_id;
+/*  descripcion: creacion de objeto planta y tabla plantas
+*   interaccion tablas: dispositivos
+*   interaccion codigos: ...*/
 
+
+public class Planta {
+
+    /**atributos*/
+    private Long id;
+    private String nombre;
+    private String nombre_cientifico;
+    private String tipo;
+    private Long dispositivo_id;
+    private String fecha_plantacion;
+
+
+    /**constructores*/
     public Planta() {
         super();
     }
 
-    public Planta(int id, String nombre, float temperatura, float humendad, int usuario_id) {
-        super();
+    public Planta(Long id, String nombre, String nombre_cientifico, String tipo, Long dispositivo_id, String fecha_plantacion) {
         this.id = id;
         this.nombre = nombre;
-        this.temperatura = temperatura;
-        this.humendad = humendad;
-        this.usuario_id = usuario_id;
+        this.nombre_cientifico = nombre_cientifico;
+        this.tipo = tipo;
+        this.dispositivo_id = dispositivo_id;
+        this.fecha_plantacion = fecha_plantacion;
     }
 
-    public int getId() {
+
+    /** getter and setter*/
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -34,33 +46,35 @@ public class Planta {
         this.nombre = nombre;
     }
 
-    public float getTemperatura() {
-        return temperatura;
+    public String getNombre_cientifico() {
+        return nombre_cientifico;
     }
 
-    public void setTemperatura(float temperatura) {
-        this.temperatura = temperatura;
+    public void setNombre_cientifico(String nombre_cientifico) {
+        this.nombre_cientifico = nombre_cientifico;
     }
 
-    public float getHumendad() {
-        return humendad;
+    public String getTipo() {
+        return tipo;
     }
 
-    public void setHumendad(float humendad) {
-        this.humendad = humendad;
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
     }
 
-    public int getUsuario_id() {
-        return usuario_id;
+    public Long getDispositivo_id() {
+        return dispositivo_id;
     }
 
-    public void setUsuario_id(int usuario_id) {
-        this.usuario_id = usuario_id;
+    public void setDispositivo_id(Long dispositivo_id) {
+        this.dispositivo_id = dispositivo_id;
     }
 
-    @Override
-    public String toString() {
-        return "Planta [id=" + id + ", nombre=" + nombre + ", temperatura=" + temperatura + ", humendad=" + humendad
-                + ", usuario_id=" + usuario_id + "]";
+    public String getFecha_plantacion() {
+        return fecha_plantacion;
+    }
+
+    public void setFecha_plantacion(String fecha_plantacion) {
+        this.fecha_plantacion = fecha_plantacion;
     }
 }
