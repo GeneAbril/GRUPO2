@@ -5,18 +5,16 @@ public class Usuario {
     private String nombre;
     private String correo;
     private String contraseña;
-    private Integer region_id;
 
     //constructores
     public Usuario() {
     }
 
-    public Usuario(Integer id, String nombre, String correo, String contraseña, Integer region_id) {
+    public Usuario(Integer id, String nombre, String correo, String contraseña) {
         this.id = id;
         this.nombre = nombre;
         this.correo = correo;
         this.contraseña = contraseña;
-        this.region_id = region_id;
     }
 
     //getter y setters
@@ -53,14 +51,6 @@ public class Usuario {
         this.contraseña = contraseña;
     }
 
-    public Integer getRegion_id() {
-        return region_id;
-    }
-
-    public void setRegion_id(Integer region_id) {
-        this.region_id = region_id;
-    }
-
     //metodos
 
     @Override
@@ -70,7 +60,6 @@ public class Usuario {
                 ", nombre='" + nombre + '\'' +
                 ", correo='" + correo + '\'' +
                 ", contraseña='" + contraseña + '\'' +
-                ", region_id=" + region_id +
                 '}';
     }
 }
