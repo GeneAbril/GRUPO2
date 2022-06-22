@@ -12,39 +12,46 @@ use grupo2;
 create table usuarios(
 id int PRIMARY KEY AUTO_INCREMENT,
 nombre varchar(50),
+apellido varchar(50),
 correo varchar(80),
 clave varchar(50)
+
 );
 
 CREATE table dispositivos(
 id int NOT NULL AUTO_INCREMENT,
 nombre varchar(30),
-temperatura float,
+sensor_temperatura boolean,
+sensor_humedad boolean,
 usuario_id int,
-primary key(id),
-foreign key(usuario_id) references usuarios(id)
-);
+primary key(id)
+); 
 
 -- TABLA RELACIONAL DISPOSITIVO PLANTA
 CREATE table dispositivo_usuario(
 id int NOT NULL AUTO_INCREMENT,
 dispositivo_id int,
-usuario_id int,PRIMARY KEY(id),
-foreign key(dispositivo_id) references dispositivos(id),
-foreign key(usuario_id) references usuarios(id)
+usuario_id int,
+
+PRIMARY KEY(id)
 );
 
 -- PLANTAS
-create table plantas(
-id int PRIMARY KEY AUTO_INCREMENT,
+CREATE table plantas(
+id int NOT NULL AUTO_INCREMENT,
 nombre varchar(50),
-dispositivo_id int -- FK usuariosforeign key(dispositivo_id) references dispositivos(id)
+fecha_plantacion varchar(30),
+dispositivo_id int, -- FK usuarios
+PRIMARY KEY(id)
 );
 
 -- REGISTROS
-create table registros(
+create table mediciones(
 id int PRIMARY KEY AUTO_INCREMENT,
-dispositivo_id int -- FK dispositivosforeign key(dispositivo_id) references dispositivos(id)
+temperatura float,
+humedad float,
+fecha datetime,
+dispositivo_id int -- FK dispositivos
 );
 
 -- FOREIGN KEYS:
@@ -57,4 +64,4 @@ ALTER TABLE dispositivo_usuario ADD CONSTRAINT FK_dispositivo_id FOREIGN KEY (di
 -- PLANTAS > DISPOSITIVOS
 ALTER TABLE plantas ADD CONSTRAINT FK_dispositivo2_id FOREIGN KEY (dispositivo_id) REFERENCES dispositivos(id);
 -- REGISTROS > DISPOSITIVOS
-ALTER TABLE REGISTROS ADD CONSTRAINT FK_dispositivo3_id FOREIGN KEY (dispositivo_id) REFERENCES dispositivos(id);
+ALTER TABLE mediciones ADD CONSTRAINT FK_dispositivo3_id FOREIGN KEY (dispositivo_id) REFERENCES dispositivos(id);
