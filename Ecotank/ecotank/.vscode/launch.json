@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-EcotankApplication<ecotank>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.grupo2.EcotankApplication",
+            "projectName": "ecotank",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
