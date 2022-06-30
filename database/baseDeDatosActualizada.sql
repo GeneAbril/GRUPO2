@@ -23,6 +23,10 @@ id int NOT NULL AUTO_INCREMENT,
 nombre varchar(30),
 sensor_temperatura boolean,
 sensor_humedad boolean,
+<<<<<<< HEAD:database/basedatos.sql
+usuario_id int,
+=======
+>>>>>>> ae9bef2e80191ec42776f875b40a1c3281b64e26:database/baseDeDatosActualizada.sql
 primary key(id)
 ); 
 
