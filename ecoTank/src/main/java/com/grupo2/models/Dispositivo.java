@@ -34,7 +34,7 @@ private Date createdAt;
 
 private Date updatedAt;
 
-    //Many To Many
+    //Many To Many a usuarios
     @ManyToMany(fetch=FetchType.EAGER)
     //creacion de tabla relacional
 @JoinTable(name= "dispositivos_usuarios",
