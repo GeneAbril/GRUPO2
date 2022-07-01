@@ -3,6 +3,7 @@ package com.grupo2.models;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -12,6 +13,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
@@ -41,7 +43,9 @@ inverseJoinColumns= @JoinColumn(name="usuario_id")
 )
 private List <Usuario> listaUsuarios;
 
-
+//One To Many de dispositivo a Planta
+@OneToMany(mappedBy ="dispositivo",cascade=CascadeType.ALL ,fetch=FetchType.LAZY)
+private List<Planta> listaPlantas;
 //constructor vacio
     public Dispositivo() {
     }
@@ -95,3 +99,4 @@ private List <Usuario> listaUsuarios;
         this.updatedAt = new Date();
     }
 }
+

@@ -1,4 +1,4 @@
-package com.grupo2.modelos;
+package com.grupo2.models;
 
 import java.util.Date;
 import javax.persistence.JoinColumn;
