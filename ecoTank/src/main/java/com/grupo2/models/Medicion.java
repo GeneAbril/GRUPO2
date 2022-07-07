@@ -9,6 +9,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
@@ -40,11 +41,10 @@ public class Medicion {
 	private Date createdAt;// Para saber en que momento fue insertada en la base de datos
 	private Date updatedAt;// Para cuando se actualizo
 	
-	// Relacion OneToOne (1a1)
-	@OneToOne(fetch = FetchType.LAZY)
-	@JoinColumn(name = "dispositivo_id") //FK dispositivo_id
+	//Many To One a Dispositivo
+	@ManyToOne(fetch=FetchType.LAZY)
+	@JoinColumn(name="dispositivo_id")
 	private Dispositivo dispositivo;
-
 
 	//Constructores | Vacio
 	public Medicion() {
