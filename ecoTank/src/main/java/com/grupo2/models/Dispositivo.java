@@ -46,7 +46,7 @@ private List <Usuario> listaUsuarios;
 //Relacioens
 
 //One To Many de dispositivo a Planta
-@OneToMany(mappedBy ="dispositivos",cascade=CascadeType.ALL ,fetch=FetchType.LAZY)
+@OneToMany(mappedBy ="dispositivo",cascade=CascadeType.ALL ,fetch=FetchType.LAZY)
 private List<Planta> listaPlantas;
 
 //One To Many de dispositivo a mediciones
