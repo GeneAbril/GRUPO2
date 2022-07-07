@@ -34,18 +34,25 @@ private Date createdAt;
 
 private Date updatedAt;
 
-    //Many To Many a usuarios
-    @ManyToMany(fetch=FetchType.EAGER)
-    //creacion de tabla relacional
+//Many To Many a usuarios
+@ManyToMany(fetch=FetchType.EAGER)
+//creacion de tabla relacional
 @JoinTable(name= "dispositivos_usuarios",
 joinColumns = @JoinColumn(name="dispositivo_id"),//creacion de columnas
 inverseJoinColumns= @JoinColumn(name="usuario_id")
 )
 private List <Usuario> listaUsuarios;
 
+//Relacioens
+
 //One To Many de dispositivo a Planta
-@OneToMany(mappedBy ="dispositivo",cascade=CascadeType.ALL ,fetch=FetchType.LAZY)
+@OneToMany(mappedBy ="dispositivos",cascade=CascadeType.ALL ,fetch=FetchType.LAZY)
 private List<Planta> listaPlantas;
+
+//One To Many de dispositivo a mediciones
+@OneToMany(mappedBy ="dispositivo",cascade=CascadeType.ALL ,fetch=FetchType.LAZY)
+private List<Medicion> listaMediciones;
+
 //constructor vacio
     public Dispositivo() {
     }
