@@ -5,7 +5,6 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.AutoProxyRegistrar;
 import org.springframework.stereotype.Service;
 
 import com.grupo2.models.Usuario;
