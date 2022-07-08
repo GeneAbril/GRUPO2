@@ -10,12 +10,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToOne;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
-import org.springframework.format.annotation.DateTimeFormat;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 @Entity
 @Table(name="mediciones")
@@ -32,8 +32,8 @@ public class Medicion {
 	// Variable humedad
 	private Float humedad;
 	
-	//Variable Fecha | @DateTimeFormat: para dar el formato de la fecha
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	//Variable Fecha | @JsonFormat: para dar el formato de la fecha al json 
+	@JsonFormat(pattern = "yyyy-MM-dd")
 	private Date fecha;
 	
 	//Columnas de Fecha/tiempo
