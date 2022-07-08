@@ -19,6 +19,7 @@ public class DispositivoService {
         return dispositivoRepository.findAll();
     }
 
+    // Metodo para enviar un dispositivo
     public Dispositivo findOne(Long id) {
         return dispositivoRepository.findById(id).get();
     }

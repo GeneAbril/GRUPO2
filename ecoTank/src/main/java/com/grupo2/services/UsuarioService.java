@@ -29,6 +29,11 @@ public class UsuarioService {
 		
 		return usuarioRepository.findAll();
 	}
+
+	public Usuario getOneUser(Long id) {
+		// TODO Auto-generated method stub
+		return usuarioRepository.findById(id).get();
+	}
 	
 	
 	
