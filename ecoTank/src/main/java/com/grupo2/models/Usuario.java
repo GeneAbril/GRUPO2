@@ -11,6 +11,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import org.hibernate.annotations.ManyToAny;
 
@@ -28,6 +29,10 @@ public class Usuario {
 	private String apellido;
 	private String correo;
 	private String clave;
+
+	@Transient
+	private String claveConfirmacion;
+
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(
 		name = "dispositivos_usuarios",
@@ -91,5 +96,14 @@ public class Usuario {
 	public void setClave(String clave) {
 		this.clave = clave;
 	}
+
+	public String getClaveConfirmacion() {
+		return claveConfirmacion;
+	}
+
+	public void setClaveConfirmacion(String claveConfirmacion) {
+		this.claveConfirmacion = claveConfirmacion;
+	}
+	
 	
 }

@@ -45,7 +45,7 @@ public class UsuarioController {
 			}
 
 			// enviar el objeto al service
-			usuarioService.saveUsuario(usuario);
+			boolean usuarioCreado = usuarioService.saveUsuario(usuario);
 
 			// obtener una lista de autos
 			List<Usuario> listaUsuarios = usuarioService.findAll();

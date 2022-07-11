@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.mindrot.jbcrypt.BCrypt;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,8 +20,24 @@ public class UsuarioService {
 	//Metodos
 	
 	//Metodo para registrar el usuario en la base de datos
-	public void saveUsuario(@Valid Usuario usuario) {
-		usuarioRepository.save(usuario);
+	public boolean saveUsuario(@Valid Usuario usuario) {
+		boolean error = true;
+		//Validar si existe email
+		Usuario existeUsuario = usuarioRepository.findByEmail(usuario.getCorreo());
+		// Si existe o no el usuario lo creamos
+		if (existeUsuario == null) {
+			// 2.- encriptar el password
+			String passEncriptado = BCrypt.hashpw(usuario.getClave(), BCrypt.gensalt());
+			usuario.setClave(passEncriptado);
+			usuarioRepository.save(usuario);
+			error = false;
+		}
+		//Si existe, retornamos un boolean true
+		else {
+			error = true;
+		}
+
+		return error;
 		
 	}
 	
