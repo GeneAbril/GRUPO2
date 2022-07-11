@@ -1,6 +1,5 @@
 package com.grupo2.controllers;
 
-import java.util.List;
 
 import javax.validation.Valid;
 
@@ -11,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.grupo2.models.Usuario;
 import com.grupo2.services.UsuarioService;
@@ -47,11 +47,45 @@ public class UsuarioController {
 			// enviar el objeto al service
 			boolean usuarioCreado = usuarioService.saveUsuario(usuario);
 
-			// obtener una lista de autos
-			List<Usuario> listaUsuarios = usuarioService.findAll();
-			// Pasamos la lista de auto al jsp
-			model.addAttribute("usuariosCapturados", listaUsuarios);
-
+			if(usuarioCreado)
+			{
+				model.addAttribute("msgError", "Email ya existe");
+				return "registroUsuario.jsp";
+			}
+			
+			//En caso de que el registro haya sido exito
 			return "registroExitoso.jsp"; // pagina a desplegar
 		}
+
+	// RUTA LOGIN
+	@RequestMapping("/login")
+	public String login() {
+		return "login.jsp";
+	}
+
+	// RUTA VALIDAR LOGIN
+	@PostMapping("/login")
+	public String validarLogin(@RequestParam(value="correo")String correo, @RequestParam(value="clave") String clave, Model model){
+	// validar si campos enviados estan vacios o son null
+		if(correo==null || clave ==null ||  correo.isEmpty() || clave.isEmpty()) {
+			model.addAttribute("msgError", "Todos los campos son obligatorios");
+			return "login.jsp";
+		}
+		
+		// Validaciones: 
+		// Si email no coincide = true
+		// Si clave no coincide = true
+		// Si clave y email coinciden = false
+		boolean usuarioValidado = usuarioService.validarUsuario(correo,clave);
+
+		if(usuarioValidado){
+			model.addAttribute("msgError", "Error en el ingreso al sistema");
+			return "login.jsp";
+		}else {
+			//no hay error, puede ingresar al sistema
+			// session.setAttribute("correo", correo);
+			
+		return "home.jsp";
+		}
+	}
 }
