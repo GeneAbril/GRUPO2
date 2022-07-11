@@ -1,0 +1,150 @@
+*{
+    width: auto;
+    height: auto;
+    padding: 2px;
+}
+
+
+a {
+    /*sin subrayado de seleccion*/
+    text-decoration: none;
+    color: black;
+}
+
+header {
+      /*flex: horizontal*/
+      display: flex;
+      /*altura minima*/
+      min-height: 90px;
+      background-color: rgb(30, 126, 62);
+      /*eje principal*/
+      justify-content: space-between;
+      /*alinear verticalmente*/
+      align-items: center;
+      padding: 10px;
+}
+/*nombre de empresa queda horizontal*/
+
+.logo {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    color: black;
+    
+}
+
+/*tamaño de imagen*/
+
+.logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+/*estilo letras*/
+nav a {
+    font-weight: 90px;
+    padding-right: 10px;
+    color: black;
+
+}
+
+nav a:hover {
+    color: rgb(91, 143, 39);
+}
+.logo :hover{
+    color: rgb(91, 143, 39);
+}
+.login {
+    height: 85px;
+    text-align: center;
+    font-size: 16px;
+}
+
+/*cudrado pequeño*/
+.cuadrado{
+    width: 100px;
+    height: 100px;
+    background:wheat;
+    border: 3px;
+    border-style: dotted;
+    position: fixed;
+    bottom: 380px;
+    right: 1250px;
+    transform: rotate(40deg);
+}
+
+/*cudrado grande*/
+.cuadrado2{
+    width: 200px;
+    height: 200px;
+    background:wheat;
+    border: 3px;
+    border-style: dotted;
+    position: fixed;
+    bottom: 180px;
+    right: 1100px;
+
+    /*rotar imagen*/
+      transform: rotate(40deg);
+}
+
+.rectangulo{
+   text-align: center;
+    width: 30px;
+    height: 40px;
+    background: wheat;
+    border: 3px solid black;
+    position: fixed;
+    bottom: 442px;
+    right: 860px;
+}
+.rectangulo2{
+    width: 30px;
+    height: 100px;
+    background: blue;
+    border: 2px solid black;
+     position: fixed;
+    bottom: 343px;
+    right: 860px;
+}
+.rectangulo3{
+    align-items: center;
+    width: 30px;
+    height: 40px;
+    background: wheat;
+    border: 2px solid black;
+    position: fixed;
+    bottom: 442px;
+    right: 900px;
+}
+.rectangulo4{
+    width: 30px;
+    height: 100px;
+    background: red;
+    border: 2px solid black;
+     position: fixed;
+    bottom: 343px;
+    right: 900px;
+}
+.comentarios{
+    text-align: center;
+    font-family:'Times New Roman';
+  background-color: darkseagreen;
+    border: 3px;
+    border-style: dotted;
+    position: fixed;
+    bottom: 300px;
+    right: 200px;
+}
+
+
+/*adaptar para responsive pantalla pequeña*/
+
+@media (max-width:800px) {
+    header {
+        flex-direction: column;
+    }
+    nav {
+        padding: 10px 0px;
+    }
+}
