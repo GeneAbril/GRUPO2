@@ -1,4 +1,6 @@
-*{
+@import url('./colores.css');
+
+* {
     width: auto;
     height: auto;
     padding: 2px;
@@ -12,17 +14,19 @@ a {
 }
 
 header {
-      /*flex: horizontal*/
-      display: flex;
-      /*altura minima*/
-      min-height: 90px;
-      background-color: rgb(30, 126, 62);
-      /*eje principal*/
-      justify-content: space-between;
-      /*alinear verticalmente*/
-      align-items: center;
-      padding: 10px;
+    /*flex: horizontal*/
+    display: flex;
+    /*altura minima*/
+    min-height: 90px;
+    background-color: var(--color-nav);
+    /* background-color: rgb(30, 126, 62); */
+    /*eje principal*/
+    justify-content: space-between;
+    /*alinear verticalmente*/
+    align-items: center;
+    padding: 10px;
 }
+
 /*nombre de empresa queda horizontal*/
 
 .logo {
@@ -30,7 +34,7 @@ header {
     display: flex;
     align-items: center;
     color: black;
-    
+
 }
 
 /*tamaño de imagen*/
@@ -51,9 +55,11 @@ nav a {
 nav a:hover {
     color: rgb(91, 143, 39);
 }
-.logo :hover{
+
+.logo :hover {
     color: rgb(91, 143, 39);
 }
+
 .login {
     height: 85px;
     text-align: center;
@@ -61,80 +67,118 @@ nav a:hover {
 }
 
 /*cudrado pequeño*/
-.cuadrado{
-    width: 100px;
-    height: 100px;
-    background:wheat;
+.cuadrado {
+    vertical-align:top;
+    width: 100%;
+    padding-top: 100%; /* 1:1 Aspect Ratio */
+    position: relative; /* If you want text inside of it */
+    background: wheat;
     border: 3px;
+    margin-top:  6%;
+    margin-left: 12%;
+    margin-right: 2%;
+    margin-bottom: 0px;
+    /*padding: 2%;*/
     border-style: dotted;
-    position: fixed;
-    bottom: 380px;
-    right: 1250px;
-    transform: rotate(40deg);
+    display:inline-block;
+    /*bottom: 380px;*/
+    /*right: 1250px;*/
+    /*transform: rotate(40deg);*/
+    -ms-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
 }
 
 /*cudrado grande*/
-.cuadrado2{
-    width: 200px;
-    height: 200px;
-    background:wheat;
+.cuadrado2 {
+    vertical-align: top;
+    width: 100%;
+    padding-top: 100%; /* 1:1 Aspect Ratio */
+    position: relative; /* If you want text inside of it */
+    background: wheat;
     border: 3px;
+    margin-top: 3%;
+    margin-bottom: 2%;
+    margin-left: 2%;
+    margin-right: 2%;
+    /*padding: 2%;*/
     border-style: dotted;
-    position: fixed;
-    bottom: 180px;
-    right: 1100px;
+    display:inline-block;
+    /*bottom: 180px;*/
+    /*right: 1100px;*/
 
     /*rotar imagen*/
-      transform: rotate(40deg);
+    /*transform: rotate(40deg);*/
+    -ms-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
 }
 
-.rectangulo{
-   text-align: center;
+.rectangulo {
+    text-align: center;
     width: 30px;
     height: 40px;
     background: wheat;
-    border: 3px solid black;
-    position: fixed;
+    border: 1px solid black;
+    
+    /* position: fixed;*/
+    display: block;
     bottom: 442px;
     right: 860px;
 }
-.rectangulo2{
+
+.rectangulo2 {
     width: 30px;
     height: 100px;
     background: blue;
-    border: 2px solid black;
-     position: fixed;
-    bottom: 343px;
-    right: 860px;
+    border: 1px solid black;
+    /*position: fixed;*/
+    display: block;
+    /*bottom: 343px;
+    right: 860px;*/
 }
-.rectangulo3{
-    align-items: center;
+
+.rectangulo3 {
+    text-align: center;
     width: 30px;
     height: 40px;
     background: wheat;
-    border: 2px solid black;
-    position: fixed;
-    bottom: 442px;
-    right: 900px;
+    border: 1px solid black;
+    /*position: fixed;*/
+    display:block;
+    /*bottom: 442px;
+    right: 900px;*/
 }
-.rectangulo4{
+
+.rectangulo4 {
     width: 30px;
     height: 100px;
     background: red;
-    border: 2px solid black;
-     position: fixed;
+    border: 1px solid black;
+    /*position: fixed;*/
+    display:block;
     bottom: 343px;
     right: 900px;
 }
-.comentarios{
+
+.comentarios {
     text-align: center;
-    font-family:'Times New Roman';
-  background-color: darkseagreen;
+    font-family: 'Times New Roman';
+    background-color: darkseagreen;
     border: 3px;
     border-style: dotted;
-    position: fixed;
-    bottom: 300px;
-    right: 200px;
+    /*position: fixed;*/
+    display: inline-block;
+    /*bottom: 50%;*/
+    /*right: 50%;*/
+    margin:3px;
+    padding:3px;
+    width:100%;
+    height: 100%;
+}
+
+.graduacion{
+    display: inline-block;
 }
 
 
@@ -144,6 +188,7 @@ nav a:hover {
     header {
         flex-direction: column;
     }
+
     nav {
         padding: 10px 0px;
     }

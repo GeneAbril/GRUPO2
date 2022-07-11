@@ -1,8 +1,6 @@
 @import url('./colores.css');
 
-/*.container{
-    background-color:rgb(216,248,225);
-}*/
+
 header {
     /*flex: horizontal*/
     display: flex;
@@ -18,7 +16,7 @@ header {
 }
 nav a {
     font-weight: 90px;
-    padding-right: 10px;
+    padding-right: 2px;
     color: black;
 
 }
@@ -37,13 +35,12 @@ nav a:hover {
     color: rgb(91, 143, 39);
 }
 form{
-    width: 400px;
-    height: 400px;
-   background-color:mediumseagreen;
-   align-items: center;
-   border: 3px solid black;
-   border-style: dotted;
-   text-align: center;
-   border-radius: 10px;
-   
+width: 400px;
+height: 400px;
+background-color: mediumseagreen;
+align-items: center;
+border: 3px solid black;
+border-style: dotted;
+text-align: center;
+
 }
