@@ -2,6 +2,8 @@ package com.grupo2.services;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +22,10 @@ public class MedicionService {
 
 	public Medicion mostrarMedicion(Long id) {
 		return medicionRepository.findById(id).get();
+	}
+
+	public Medicion add(@Valid Medicion medicion) {
+		return medicionRepository.save(medicion);
 	}
 
     
