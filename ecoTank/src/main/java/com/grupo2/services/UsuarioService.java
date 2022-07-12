@@ -48,8 +48,27 @@ public class UsuarioService {
 	}
 
 	public Usuario getOneUser(Long id) {
-		// TODO Auto-generated method stub
+		//TODO Auto-generated method stub
 		return usuarioRepository.findById(id).get();
+	}
+
+	public boolean validarUsuario(String correo, String clave) {
+		boolean error = true;
+		// verificar el email
+		Usuario existeUsuario = usuarioRepository.findByEmail(correo);
+		if (existeUsuario == null) {//no existe el usuario, error de ingreso
+			error = true;
+		}else {
+			// verificar password contra password base datos desencriptada
+			if(BCrypt.checkpw(clave, existeUsuario.getClave())) {
+				//password iguales, email y password igual a la base datos
+				error= false;
+			}else {
+				//password distintos, error 
+				error = true;
+			}
+		}
+		return error;
 	}
 	
 	
