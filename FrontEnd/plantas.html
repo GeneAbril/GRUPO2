@@ -12,7 +12,6 @@
 
   <title>Plantas</title>
 </head>
-
 <body>
   <div style="position:fixed  ; z-index: -1; opacity: .4;" >
     <img src="assets/corona.png" alt="corona">
@@ -74,10 +73,40 @@
       </div>
 
     </div>
+  
+ <!--MODAL PLANTAS-->
+ <!--boton agregar planta-->
+  <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Agregar planta</button>
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!--titulo agregar planta-->
+        <h5 class="mt-1" id="exampleModalLabel">Agrega una planta</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <!--opcion nombre planta-->
+          <div class="mb-2">
+            <label for="recipient-name" class="col-form-label">Nombre de planta:</label>
+            <input type="text" class="form-control" id="recipient-name"><br>
+            <!--casillas de seleccion de propiedades temperatura o humedad-->
+            <h5>Selecciona las propiedades a medir</h5>
+            <label for="html">Temperatura</label> <input type="checkbox" name="opcion1" id="t" value="t"><br>
+            <label for="html">Humedad</label> <input type="checkbox" name="opcion2" id="h" value="h"><br>
+          </div>
+        </form>
+      </div>
+      <!--boton crear y cerrar-->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Cerrar</button>
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">Crear planta</button>
+      </div>
+    </div>
   </div>
-
-
-
+</div>
+</div>
 
 
   <!-- Option 1: Bootstrap Bundle with Popper -->
