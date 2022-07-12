@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="CSS/graficosNav.css">
+    <link rel="stylesheet" href="CSS/colores.css">
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
@@ -13,16 +14,36 @@
   </head>
   <body>
 
+
+    <!-- NAVBAR BOOSTRAP -->
+    <nav class="navbar navbar-light bg-dark mb-5 p-4">
+      <div class="container">
+
+          <a class="navbar-brand text-white d-flex" href="#">
+              <img src="./assets/LogoEcoTank.png" width="50" height="50" class="d-inline-block align-top" alt="">
+              <h1 class="ms-3">EcoTank</h1>
+          </a>
+
+          <div class="form-inline my-2 my-lg-0">
+              <a class="btn btn-outline-success my-2 my-sm-0" href="inicio.html">Iniciar Sesion</a>
+          </div>
+      </div>
+  </nav>
+    <div>
+    <h1 class="titulo">Nombre Dispositivo</h1>
+    <hr>
+  </div>
+
     <!-- Grafico Temperatura -->
-    <div class="container">
+    <div class="container w-50 mb-5">
       <canvas id="temperatura"></canvas>
     </div>
 
-    <div class="container">
+    <!-- <div class="container w-25">
       <canvas id="temperaturaDonuts"></canvas>
-    </div>
+    </div> -->
 
-    <div class="container">
+    <div class="container w-50">
       <canvas id="humedad"></canvas>
     </div>
 
@@ -88,7 +109,8 @@
         );
 
 
-      //Configuracion del grafico humedad  
+      //Configuracion del grafico humedad
+      const datapoints  = [55, 3];//varaible donde se almacenara el dato a mostrar
       const data3 = {
           labels: ['Lunes',''],
           datasets: [{
@@ -96,11 +118,11 @@
             backgroundColor: ['rgb(8,14,189)',
             'transparent'],
             borderColor: ['rgb(8,14,189)', 'transparent'],
-            data: [90, 10],
+            data: datapoints,// aqui van los datos que mostraremos
             //ajustes adicionales
             borderWidth: 1,
             cutout: '95%',
-            borderRadius: 10
+            borderRadius: 5
           }]
         };
 
@@ -111,14 +133,17 @@
             const { ctx, chartArea: { top, right, bottom, left, width, height }} = chart
             ;
             ctx.save();
-            ctx.fillStyle = 'blue';
-            
-            const ycenter = (top + (height/2));
+            //obteniendo la ubicacion del centro para agregar nuestro texto
+            const ycenter = (height/2);
             const xcenter =(width/2);
-            console.log(height);
-            ctx.fillRect(xcenter ,ycenter  ,10,10);
             //Escribir y automatizar texto
-            ctx.font
+            ctx.font = options.fontSize + ' ' + options.fontFamily;
+            ctx.textAlign ='center';
+            //Asignamos en color de la fuente dentro de opciones en seccion de configuracion del chart
+            ctx.fillStyle =options.fontColor;
+
+            ctx.fillText(datapoints[0]+'%', xcenter, ycenter);
+
             //x0 indica el punto de partida en el eje horizontal i/d
             //y0 indica el punto de partida en el eje vertical a/ab
             //x1 = longitud de la forma en pixeles en el eje horizontal
@@ -133,7 +158,21 @@
         const config3 = {
           type: 'doughnut',
           data: data3,
-          options: {},
+          options: {
+            plugins:{
+              legend: {
+                display:false
+              },
+              tooltip: {
+                enabled:false //Para ocultar descripcion al dejar mouse encima
+              },
+              counter:{
+                fontColor: 'blue',
+                fontSize: '20px',
+                fontFamily: 'sans-serif'
+              }
+            }
+          },
           plugins:[counter]
         };
       // render init block chart3
