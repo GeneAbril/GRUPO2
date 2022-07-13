@@ -18,3 +18,7 @@
     transform: rotate(-45deg);
 }
 
+
+.dispositivoList:hover {
+    background-color: rgba(0, 0, 0, .1);
+}
