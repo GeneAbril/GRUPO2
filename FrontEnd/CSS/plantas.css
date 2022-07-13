@@ -3,9 +3,11 @@
 * {
     width: auto;
     height: auto;
-    padding: 2px;
 }
 
+.logo {
+    width: 50px;
+}
 
 a {
     /*sin subrayado de seleccion*/
@@ -27,38 +29,8 @@ header {
     padding: 10px;
 }
 
-/*nombre de empresa queda horizontal*/
 
-.logo {
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    color: black;
 
-}
-
-/*tamaño de imagen*/
-
-.logo img {
-    height: 50px;
-    margin-right: 10px;
-}
-
-/*estilo letras*/
-nav a {
-    font-weight: 90px;
-    padding-right: 10px;
-    color: black;
-
-}
-
-nav a:hover {
-    color: rgb(91, 143, 39);
-}
-
-.logo :hover {
-    color: rgb(91, 143, 39);
-}
 
 .login {
     height: 85px;
@@ -192,7 +164,5 @@ align-items: center;
         flex-direction: column;
     }
 
-    nav {
-        padding: 10px 0px;
-    }
+
 }

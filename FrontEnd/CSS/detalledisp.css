@@ -1,0 +1,74 @@
+@import url('./colores.css');
+
+
+.cuadrado{
+    vertical-align:top;
+    width: 100%;
+    padding-top: 100%; /* 1:1 Aspect Ratio */
+    position: relative; /* If you want text inside of it */
+    background: wheat;
+    border: 3px;
+    margin-top:  6%;
+    margin-left: 60%;
+    margin-right: 2%;
+    margin-bottom: 0px;
+    /*padding: 2%;*/
+    border-style: dotted;
+    display:inline-block;
+    /*bottom: 380px;*/
+    /*right: 1250px;*/
+    /*transform: rotate(40deg);*/
+    -ms-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+}
+
+.rectangulo {
+    text-align: center;
+    width: 30px;
+    height: 40px;
+    background: wheat;
+    border: 1px solid black;
+    
+    /* position: fixed;*/
+    display: block;
+    bottom: 442px;
+    right: 860px;
+}
+
+.rectangulo2 {
+    width: 30px;
+    height: 100px;
+    background: blue;
+    border: 1px solid black;
+    /*position: fixed;*/
+    display: block;
+    /*bottom: 343px;
+    right: 860px;*/
+}
+
+.rectangulo3 {
+    text-align: center;
+    width: 30px;
+    height: 40px;
+    background: wheat;
+    border: 1px solid black;
+    /*position: fixed;*/
+    display:block;
+    /*bottom: 442px;
+    right: 900px;*/
+}
+
+.rectangulo4 {
+    width: 30px;
+    height: 100px;
+    background: red;
+    border: 1px solid black;
+    /*position: fixed;*/
+    display:block;
+    bottom: 343px;
+    right: 900px;
+}
+.graduacion{
+    display: inline-block;
+}
