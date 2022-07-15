@@ -1,0 +1,16 @@
+.padre {
+    height: 1000px;
+}
+
+html, body{ 
+    height:100%;
+}
+#root{
+    height:100% !important;
+}
+#contenido{
+    height:100% !important;
+}
+
+
+
