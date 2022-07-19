@@ -1,27 +1,35 @@
 import React from 'react'
-// Asi se importa bootstrap * SI ES QUE LO TENEMOS INSTALADOS POR NPM *
-import 'bootstrap/dist/css/bootstrap.min.css';
-import HeaderComponent from './components/HeaderComponent';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+// import HeaderComponent from './components/HeaderComponent';
+import AgregarComentarioComponent from './components/AgregarComentarioComponent';
 import FooterComponent from './components/FooterComponent';
+import GraficosComponent from './components/GraficosComponent';
+import HeaderComponent from './components/HeaderComponent';
+import HomeComponent from './components/HomeComponent';
+import LoginComponent from './components/LoginComponent';
 
-import './style.css';
-/*funcion que retorna una etiqueta html ej: <div></div>*/
+
 const App = () => {
-    return (
-        /*fragmento: etiqueta vacia*/ 
-        <>
-                {/* NAV */}
-                <HeaderComponent/>
+  return (
+    <BrowserRouter>
+      <HeaderComponent />
 
-            {/* CONTENIDO */}
-            <div id='contenido'> asda </div>
+      <div className='container'>
 
-                {/* FOOTER */}
-                <FooterComponent/>
-        </>
+        <Routes>
+          <Route path="/" element={<HomeComponent />} />
+          <Route path="/home" element={<HomeComponent />} />
+          <Route path="/comentarios" element={<AgregarComentarioComponent />} />
+          <Route path="/graficos" element={<GraficosComponent />} />
+          <Route path="/login" element={<LoginComponent />} />
+        </Routes>
 
-    )
+      </div>
+
+      <FooterComponent />
+
+    </BrowserRouter>
+  )
 }
 
-//exportacion global de App
-export default App;
+export default App
