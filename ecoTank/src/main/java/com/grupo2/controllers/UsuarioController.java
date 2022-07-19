@@ -18,12 +18,12 @@ import com.grupo2.services.UsuarioService;
 @Controller
 @RequestMapping("/usuario") // asiganamos ruta predeterminada
 public class UsuarioController {
-	/*
-	 * 
+	
+	 
 	// inyeccion de dependencia
 		@Autowired
 		UsuarioService usuarioService;
-		
+		/*
 		// Ruta para desplegar jsp
 		@RequestMapping("")
 		// Pasando un objeto vacio

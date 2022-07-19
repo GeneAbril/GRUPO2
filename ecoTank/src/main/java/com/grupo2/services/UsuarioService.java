@@ -14,12 +14,12 @@ import com.grupo2.repositories.UsuarioRepository;
 
 @Service
 public class UsuarioService {
-	/*
+	
 	@Autowired
 	UsuarioRepository usuarioRepository;
 
 	//Metodos
-	
+	/*
 	//Metodo para registrar el usuario en la base de datos
 	public boolean saveUsuario(@Valid Usuario usuario) {
 		boolean error = true;
@@ -41,6 +41,7 @@ public class UsuarioService {
 		return error;
 		
 	}
+	*/
 	
 	//Metodo para listar los usarios ingresados
 	public List<Usuario> findAll() {
@@ -53,6 +54,11 @@ public class UsuarioService {
 		return usuarioRepository.findById(id).get();
 	}
 
+	public void registrarUsuario(Usuario usuario) {
+		usuarioRepository.save(usuario);
+	}
+
+	/*
 	public boolean validarUsuario(String correo, String clave) {
 		boolean error = true;
 		// verificar el email
