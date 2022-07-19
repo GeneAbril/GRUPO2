@@ -18,6 +18,8 @@ import com.grupo2.services.UsuarioService;
 @Controller
 @RequestMapping("/usuario") // asiganamos ruta predeterminada
 public class UsuarioController {
+	/*
+	 * 
 	// inyeccion de dependencia
 		@Autowired
 		UsuarioService usuarioService;
@@ -27,7 +29,7 @@ public class UsuarioController {
 		// Pasando un objeto vacio
 		public String inicio(@ModelAttribute("usuario") Usuario usuario) {
 			// Pasamos el objeto usuario vacio
-			return "registroUsuario.jsp"; // pagina a desplegar
+			return ""; // pagina a desplegar
 
 		}
 		
@@ -41,7 +43,7 @@ public class UsuarioController {
 			if (resultado.hasErrors()) {// capturando si existe un error en el ingreso de datos desde el jsp
 				// Enviar atributo al jsp para que muestre que hay un error
 				model.addAttribute("msgError", "Debe realizar ingreso correcto de datos");
-				return "registroUsuario.jsp";
+				return "";
 			}
 
 			// enviar el objeto al service
@@ -88,4 +90,5 @@ public class UsuarioController {
 		return "home.jsp";
 		}
 	}
+	*/
 }

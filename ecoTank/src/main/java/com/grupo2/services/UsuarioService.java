@@ -14,6 +14,7 @@ import com.grupo2.repositories.UsuarioRepository;
 
 @Service
 public class UsuarioService {
+	/*
 	@Autowired
 	UsuarioRepository usuarioRepository;
 
@@ -71,7 +72,7 @@ public class UsuarioService {
 		return error;
 	}
 	
-	
+	*/
 	
 	
 }

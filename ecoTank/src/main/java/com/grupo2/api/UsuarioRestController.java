@@ -13,7 +13,7 @@ import com.grupo2.services.UsuarioService;
 @RestController
 @RequestMapping("/api/usuarios")
 public class UsuarioRestController {
-
+/*
 	@Autowired
 	UsuarioService usuarioService;
 	
@@ -26,4 +26,5 @@ public class UsuarioRestController {
 	public Usuario mostrarUsuario(@PathVariable("id") Long id) {
 		return usuarioService.getOneUser(id);
 	}
+	*/
 }
