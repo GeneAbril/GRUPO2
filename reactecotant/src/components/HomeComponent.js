@@ -5,6 +5,7 @@ const HomeComponent = () => {
         <div>
             <h1>HomeComponent</h1>
             <hr />
+            
         </div>
     )
 }

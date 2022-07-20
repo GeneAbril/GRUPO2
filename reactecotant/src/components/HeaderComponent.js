@@ -15,6 +15,7 @@ const HeaderComponent = () => {
                 <Link to="/comentarios">Comentarios</Link>
                 <Link to="/graficos">Graficos</Link>
                 <Link to="/login">Login</Link>
+                <Link to="/register">Register</Link>
                 <Link to="/dispositivos">Dispositivos</Link>
 
                 <div className="form-inline my-2 my-lg-0">

@@ -8,6 +8,7 @@ import GraficosComponent from './components/GraficosComponent';
 import HeaderComponent from './components/HeaderComponent';
 import HomeComponent from './components/HomeComponent';
 import LoginComponent from './components/LoginComponent';
+import RegisterComponent from './components/RegisterComponent';
 
 
 const App = () => {
@@ -23,6 +24,7 @@ const App = () => {
           <Route path="/comentarios" element={<AgregarComentarioComponent />} />
           <Route path="/graficos" element={<GraficosComponent />} />
           <Route path="/login" element={<LoginComponent />} />
+          <Route path="/register" element={<RegisterComponent />} />
           <Route path="/dispositivos" element={<DispositivosComponent />} />
         </Routes>
 
