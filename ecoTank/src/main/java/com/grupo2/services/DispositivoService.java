@@ -23,4 +23,9 @@ public class DispositivoService {
     public Dispositivo findOne(Long id) {
         return dispositivoRepository.findById(id).get();
     }
+
+	public Dispositivo add(Dispositivo dispositivo) {
+		// TODO Auto-generated method stub
+		return dispositivoRepository.save(dispositivo);
+	}
 }

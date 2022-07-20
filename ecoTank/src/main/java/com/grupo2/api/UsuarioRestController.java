@@ -53,8 +53,8 @@ public class UsuarioRestController {
 		if(usuarioValidado) {
 			return new ResponseEntity<Usuario>(HttpStatus.INTERNAL_SERVER_ERROR);
 		}
-		
-		return new ResponseEntity<Usuario>(usuario,HttpStatus.OK);
+		Usuario usuarioValid = usuarioService.findByCorreo(usuario.getCorreo());
+		return new ResponseEntity<Usuario>(usuarioValid,HttpStatus.OK);
 	}
 	
 }

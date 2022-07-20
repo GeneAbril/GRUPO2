@@ -83,6 +83,12 @@ public class UsuarioService {
 		}
 		return error;
 	}
+
+
+	public Usuario findByCorreo(String correo) {
+		// TODO Auto-generated method stub
+		return usuarioRepository.findByCorreo(correo);
+	}
 	
 	
 }
