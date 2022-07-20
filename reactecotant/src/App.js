@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // import HeaderComponent from './components/HeaderComponent';
 import AgregarComentarioComponent from './components/Plantas/AgregarComentarioComponent';
@@ -13,6 +13,8 @@ import DetalleComponent from './components/Dispositivo/DetalleComponent';
 
 
 const App = () => {
+  const [stateSession, setStateSession] = useState(null)
+
   return (
     <BrowserRouter>
       <HeaderComponent />
@@ -24,10 +26,10 @@ const App = () => {
           <Route path="/home" element={<HomeComponent />} />
           <Route path="/comentarios" element={<AgregarComentarioComponent />} />
           <Route path="/graficos" element={<GraficosComponent />} />
-          <Route path="/login" element={<LoginComponent />} />
+          <Route path="/login" element={<LoginComponent setStateSession={setStateSession} />} />
           <Route path="/register" element={<RegisterComponent />} />
           <Route path="/dispositivos" element={<DispositivosComponent />} />
-          <Route path="/detalle" element={<DetalleComponent />} />
+         
         </Routes>
 
       </div>
@@ -38,4 +40,4 @@ const App = () => {
   )
 }
 
-export default App
+export default App;

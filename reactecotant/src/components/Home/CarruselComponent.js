@@ -12,7 +12,7 @@ const items = [
   {
     src: require('../../assets/img/arduino.jpg'),
     altText: 'imagen1',
-    caption: 'ARDUINO '
+    caption: 'ARDUINO y maaaaaaas '
   },
   {
     src: require('../../assets/img/planta.jpg'),
@@ -20,7 +20,7 @@ const items = [
     caption: 'SOBRE NOSOTROS'
   },
   {
-    src: require('../../assets/img/arduino.jpg'),
+    src: require('../../assets/img/cal center.jpg'),
     altText: 'Slide 3',
     caption: 'CONTACTANOS'
   }
@@ -68,12 +68,18 @@ class Example extends Component {
     const slides = items.map((item) => {
       return (
         <CarouselItem
+        // className='d-flex pt-5'
           onExiting={this.onExiting}
           onExited={this.onExited}
           key={item.src}
         >
           <img class="pt-5" src={item.src} alt={item.altText} width="100%" height="720px" />
           <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
+          {/* <div className='w-50 bg-dark text-white'>
+            <div className='p-5'>
+              <span>asdsadasd</span>
+            </div>
+          </div> */}
         </CarouselItem>
       );
     });

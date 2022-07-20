@@ -1,7 +1,7 @@
 import axios from "axios";
 
 
-const baseUrl = "http://localhost:9080/api/dispositivos"
+const baseUrl = "http://localhost:8080/api/dispositivos"
 
 //Esta funcion va a funcionar y correr mientras hacemos otras cosas
 const getAll = async() =>{
@@ -16,7 +16,7 @@ const eliminarDispositivo = async(id) =>{ //asincrona por que tenemos que espera
     //eliminarDispositivo(1)
 
     //respuesta del axios, tipo post a la url
-    const res = await axios.post(baseUrl + "/eliminar/" +id);
+    const res = await axios.post(baseUrl + "/delete/" +id);
     //axios.post(http://localhost:9080/api/dispositivos/eliminar/1)
 
     //retorna la respuesta y la data 
@@ -24,7 +24,7 @@ const eliminarDispositivo = async(id) =>{ //asincrona por que tenemos que espera
 }
 
 const saveDispositivo = async(dispositivo)=>{
-    const res = await axios.post(baseUrl+ "/guardar/dispositivo", dispositivo);
+    const res = await axios.post(baseUrl+ "/create", dispositivo);
     return res.data;
 
 }

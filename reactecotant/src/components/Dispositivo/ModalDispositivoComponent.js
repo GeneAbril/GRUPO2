@@ -1,37 +1,65 @@
-import React from 'react';
+import React, { useState } from 'react';
+
+const initialValue = {
+    nombre: '',
+    temperatura: false,
+    humedad: true
+}
+
+const ModalDispositivoComponent = ({ dispositivoAdd, dispositivoEditado, dispositivoEdit, setDispositivoEditado }) => {
+
+    const [values, setValues] = useState(initialValue);
+
+    const { nombre, temperatura, humedad } = values;
 
 
-const ModalDispositivoComponent = () =>{
+
+    const handleChange = (e) => {
+
+        const changedFormValue = {
+            ...values,
+            [e.target.name]: e.target.value
+            //key:key
+        }
+        setValues(changedFormValue)
+        console.log(values)
+    }
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        dispositivoAdd(values)
+        console.log('enter')
+    }
+
+
     return (
-    <div className="modal fade" id="modalDispositivo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div className="modal-dialog">
-            <div className="modal-content">
-                <div className="modal-header bg-success">
-                    <h5 className="mt-1 text-white" id="exampleModalLabel">Agregar dispositivo</h5>
-                    <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div className="modal-body">
-                    <form>
-                        <div className="">
-                            <label htmlFor="recipient-name" className="col-form-label">Nombre de dispositivo:</label>
-                            <input type="text" className="form-control" id="recipient-name"/>
-                            <label htmlFor="recipient-name" className="col-form-label">Selecciona las propiedades a
-                                medir:</label>
-                            <label htmlFor="html">Temperatura</label> <input type="checkbox" name="opcion1" id="t"
-                                value="t"/><br/>
-                            <label htmlFor="html">Humedad</label> <input type="checkbox" name="opcion2" id="h"
-                                value="h"/><br/>
-                        </div>
-                    </form>
-                </div>
-                {/* <!--boton crear y cerrar--> */}
-                <div className="modal-footer">
-                    <button type="button" className="btn btn-dark" data-bs-dismiss="modal">Cerrar</button>
-                    <button type="button" className="btn btn-dark" data-bs-dismiss="modal">Crear Dispositivo</button>
+        <div className="modal fade" id="modalDispositivo" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div className="modal-dialog">
+                <div className="modal-content">
+                    <div className="modal-header bg-success">
+                        <h5 className="mt-1 text-white" id="exampleModalLabel">Agregar dispositivo</h5>
+                        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div className="modal-body">
+                        <form onSubmit={handleSubmit}>
+                            <div className="">
+                                <label htmlFor="recipient-name" className="col-form-label">Nombre de dispositivo:</label>
+                                <input type="text" onChange={handleChange} name="nombre" value={nombre} className="form-control" id="recipient-name" />
+                                <label htmlFor="recipient-name" className="col-form-label">Selecciona las propiedades a
+                                    medir:</label><br/>
+                                <label htmlFor="html">Temperatura</label> <input type="checkbox" onChange={handleChange} name="temperatura" value={temperatura} /><br />
+                                <label htmlFor="html">Humedad</label> <input type="checkbox" onChange={handleChange} name="humedad" value={humedad} /><br />
+                            </div>
+                            <div className="modal-footer">
+                                <input type="submit" className="btn btn-dark" data-bs-dismiss="modal" value="Crear Dispositivo" />
+                                <button type="button" className="btn btn-dark" data-bs-dismiss="modal">Cerrar</button>
+                            </div>
+                        </form>
+
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
     )
 };
 

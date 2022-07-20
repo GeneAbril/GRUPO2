@@ -1,15 +1,19 @@
 import axios from 'axios';
 import React, { useState } from 'react'
+import corona from "../../assets/img/corona.png"
 
 const initalValue = {
   correo: '',
-  clave: ''
+  clave: '',
+  nombre: '',
+  apellido: ''
 }
 
 const RegisterComponent = () => {
     const [value, setValue] = useState(initalValue)
 
-    const {correo, clave} = value;
+    const {nombre, apellido, correo, clave} = value;
+
   
     const handleChange = (e) => {
       const newValue = {
@@ -32,9 +36,22 @@ const RegisterComponent = () => {
     }
   return (
     <div>
+      <div className='fondologin'>
+        <img src={corona} alt="corona" />
+      </div>
+    <div className='caja1'>
+    <div className='caja2'>
       <h1>Registrar</h1>
       <hr />
       <form onSubmit={handleSubmit}>
+      <div className="mb-3">
+          <label htmlFor="nombre" className="form-label">Nombre</label>
+          <input type="nombre" className="form-control" onChange={handleChange} name='nombre' value={nombre} id="nombre"  />
+        </div>
+        <div className="mb-3">
+          <label htmlFor="apellido" className="form-label">Apellido</label>
+          <input type="apellido" className="form-control" onChange={handleChange} name='apellido' value={apellido} id="apellido"  />
+        </div>
         <div className="mb-3">
           <label htmlFor="correo" className="form-label">Email address</label>
           <input type="email" className="form-control" onChange={handleChange} name='correo' value={correo} id="correo"  />
@@ -46,6 +63,8 @@ const RegisterComponent = () => {
         <button type="submit" className="btn btn-success">Registrar</button>
       </form>
 
+    </div>
+    </div>
     </div>
   )
 }

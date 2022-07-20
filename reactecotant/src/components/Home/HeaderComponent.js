@@ -1,8 +1,14 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import LogoEcoTank from "../../assets/img/LogoEcoTank.png";
+import { exitSession, getSession } from "../../persistencia/dataUsuario";
 
 const HeaderComponent = () => {
+
+
+    const session = getSession();
+    // localStorage.clear()
+    
     return (
         <nav className="navbar navbar-light bg-dark p-2">
             <div className="container">
@@ -12,15 +18,23 @@ const HeaderComponent = () => {
                 </Link>
 
                 <Link class="text-decoration-none text-white" to="/">Home</Link>
-                <Link class="text-decoration-none text-white" to="/comentarios">Comentarios</Link>
-                <Link class="text-decoration-none text-white" to="/graficos">Graficos</Link>
                 <Link class="text-decoration-none text-white" to="/login">Login</Link>
                 <Link class="text-decoration-none text-white" to="/register">Register</Link>
                 <Link class="text-decoration-none text-white" to="/dispositivos">Dispositivos</Link>
+                <Link class="text-decoration-none text-white" to="/graficos">Graficos</Link>
                 <Link class="text-decoration-none text-white" to="/detalle">Detalle</Link>
+                <Link class="text-decoration-none text-white" to="/comentarios">Comentarios</Link>
 
                 <div className="form-inline my-2 my-lg-0">
-                    <Link to="/login" className="btn btn-outline-success my-2 my-sm-0">Iniciar Sesion</Link>
+                    {
+                        session != null ? <div class="form-inline my-2 my-lg-0 dropdown-toggle d-flex">
+
+                            <p class="text-white mt-3 me-3">Usuario</p>
+                            <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" width="50px" height="50px" alt=""/>
+                    </div>
+                        : <Link to="/login" className="btn btn-outline-success my-2 my-sm-0">Iniciar Sesion</Link>
+                    }
+                    
                 </div>
             </div>
         </nav>
