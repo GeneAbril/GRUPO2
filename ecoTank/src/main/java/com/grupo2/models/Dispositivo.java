@@ -58,14 +58,23 @@ private List<Medicion> listaMediciones;
     }
 
 //constructor con parametros
-    public Dispositivo(String nombre, Boolean temperatura, Boolean humedad, List<Usuario> listaUsuarios) {
-        this.nombre = nombre;
+    public Dispositivo(Long id, String nombre, Boolean temperatura, Boolean humedad, List<Usuario> listaUsuarios) {
+        this.id = id;
+    	this.nombre = nombre;
         this.temperatura = temperatura;
         this.humedad = humedad;
         this.listaUsuarios = listaUsuarios;
     }
 
     //getters and setters
+    public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
     public String getNombre() {
         return nombre;
     }

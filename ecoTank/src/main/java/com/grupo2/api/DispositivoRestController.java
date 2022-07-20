@@ -49,6 +49,11 @@ public class DispositivoRestController {
     	return new ResponseEntity(dispositivo, HttpStatus.CREATED);
     }
     
-    
+    //ELIMINAR DISPOSITVO
+    @RequestMapping("/delete/{id}")
+    public ResponseEntity<Dispositivo> eliminarDispositivo(@PathVariable("id") Long id){
+    	dispositivoService.delete(id);
+    	return new ResponseEntity(HttpStatus.OK);
+    }
 
 }

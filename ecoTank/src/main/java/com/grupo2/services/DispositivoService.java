@@ -28,4 +28,8 @@ public class DispositivoService {
 		// TODO Auto-generated method stub
 		return dispositivoRepository.save(dispositivo);
 	}
+
+	public void delete(Long id) {
+		dispositivoRepository.deleteById(id);
+	}
 }
