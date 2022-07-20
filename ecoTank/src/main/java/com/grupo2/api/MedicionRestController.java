@@ -43,7 +43,7 @@ public class MedicionRestController {
         @PostMapping("/create")
         public ResponseEntity<Medicion> recibirInfo(@Valid @RequestBody Medicion medicion){
         	Medicion medicionAdd = medicionService.add(medicion);
-        	return new ResponseEntity(medicionAdd, HttpStatus.CREATED);
+        	return new ResponseEntity(medicionAdd, HttpStatus.CREATED);	
         }
         
 }

@@ -19,29 +19,32 @@ public class UsuarioService {
 	UsuarioRepository usuarioRepository;
 
 	//Metodos
-	/*
+	
 	//Metodo para registrar el usuario en la base de datos
 	public boolean saveUsuario(@Valid Usuario usuario) {
-		boolean error = true;
+		boolean validar = false;
 		//Validar si existe email
-		Usuario existeUsuario = usuarioRepository.findByEmail(usuario.getCorreo());
+		Usuario existeUsuario = usuarioRepository.findByCorreo(usuario.getCorreo());
 		// Si existe o no el usuario lo creamos
-		if (existeUsuario == null) {
+		
+		 if (existeUsuario == null) {
+		 
 			// 2.- encriptar el password
 			String passEncriptado = BCrypt.hashpw(usuario.getClave(), BCrypt.gensalt());
 			usuario.setClave(passEncriptado);
 			usuarioRepository.save(usuario);
-			error = false;
+			validar = true;
 		}
+		
 		//Si existe, retornamos un boolean true
 		else {
-			error = true;
+			validar = false;
 		}
-
-		return error;
+		 
+		return validar;
 		
 	}
-	*/
+	
 	
 	//Metodo para listar los usarios ingresados
 	public List<Usuario> findAll() {
@@ -58,27 +61,28 @@ public class UsuarioService {
 		usuarioRepository.save(usuario);
 	}
 
-	/*
+	
 	public boolean validarUsuario(String correo, String clave) {
 		boolean error = true;
 		// verificar el email
-		Usuario existeUsuario = usuarioRepository.findByEmail(correo);
+		Usuario existeUsuario = usuarioRepository.findByCorreo(correo);
 		if (existeUsuario == null) {//no existe el usuario, error de ingreso
 			error = true;
+			System.out.println("correo no existe");
 		}else {
 			// verificar password contra password base datos desencriptada
 			if(BCrypt.checkpw(clave, existeUsuario.getClave())) {
 				//password iguales, email y password igual a la base datos
 				error= false;
+				System.out.println("clave correcta");
 			}else {
 				//password distintos, error 
 				error = true;
+				System.out.println("clave incorrecta");
 			}
 		}
 		return error;
 	}
-	
-	*/
 	
 	
 }

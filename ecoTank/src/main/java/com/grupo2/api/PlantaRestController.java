@@ -4,14 +4,18 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.grupo2.models.Planta;
 import com.grupo2.services.PlantaService;
+
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
 @RequestMapping("/api/plantas")
+@CrossOrigin(origins = "*", methods= {RequestMethod.GET,RequestMethod.POST})			
 public class PlantaRestController {
 
         // Injeccion de dependencias
