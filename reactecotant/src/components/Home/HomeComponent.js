@@ -6,8 +6,8 @@ import Example from './CarruselComponent';
 
 const HomeComponent = () => {
     return (
-        <div>
-            <Example/>
+        <div >
+            <Example />
         </div>
     )
 }

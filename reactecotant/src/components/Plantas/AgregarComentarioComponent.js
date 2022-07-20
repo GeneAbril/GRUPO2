@@ -7,8 +7,8 @@ const AgregarComentarioComponent = ({comentarioEditado}) => {
         <hr/>
         <div class="form-group">
             <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Deje su comentario!">{comentarioEditado}</textarea>
-            <button type="button" class="btn btn-outline-warning m-2" >Warning</button>
-            <button type="button" class="btn btn-outline-success m-2">Success</button>
+            <button type="button" class="btn btn-outline-warning m-2" >Agregar</button>
+            <button type="button" class="btn btn-outline-success m-2">Limpiar</button>
         </div>
     </form>
 

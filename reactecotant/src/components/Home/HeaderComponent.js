@@ -17,6 +17,7 @@ const HeaderComponent = () => {
                 <Link class="text-decoration-none text-white" to="/login">Login</Link>
                 <Link class="text-decoration-none text-white" to="/register">Register</Link>
                 <Link class="text-decoration-none text-white" to="/dispositivos">Dispositivos</Link>
+                <Link class="text-decoration-none text-white" to="/detalle">Detalle</Link>
 
                 <div className="form-inline my-2 my-lg-0">
                     <Link to="/login" className="btn btn-outline-success my-2 my-sm-0">Iniciar Sesion</Link>

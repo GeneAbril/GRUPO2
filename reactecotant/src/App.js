@@ -9,6 +9,7 @@ import HeaderComponent from './components/Home/HeaderComponent';
 import HomeComponent from './components/Home/HomeComponent';
 import LoginComponent from './components/Login/LoginComponent';
 import RegisterComponent from './components/Login/RegisterComponent';
+import DetalleComponent from './components/Dispositivo/DetalleComponent';
 
 
 const App = () => {
@@ -26,6 +27,7 @@ const App = () => {
           <Route path="/login" element={<LoginComponent />} />
           <Route path="/register" element={<RegisterComponent />} />
           <Route path="/dispositivos" element={<DispositivosComponent />} />
+          <Route path="/detalle" element={<DetalleComponent />} />
         </Routes>
 
       </div>

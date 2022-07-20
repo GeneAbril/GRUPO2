@@ -34,8 +34,9 @@ const LoginComponent = () => {
   }
 
   return (
-    <div className='caja'>
-      <h1>Login</h1>
+    <div className='caja1'>
+    <div className='caja2'>
+      <h1>Iniciar Sesion</h1>
       <hr />
       <form onSubmit={handleSubmit} >
         <div className="mb-3">
@@ -46,9 +47,9 @@ const LoginComponent = () => {
           <label htmlFor="clave" className="form-label">Password</label>
           <input type="password" className="form-control" onChange={handleChange} name='clave' value={clave} id="clave" />
         </div>
-        <button type="submit" className="btn btn-success">Registrar</button>
+        <button type="submit" className="btn btn-success">Conectarse</button>
       </form>
-
+    </div>
     </div>
   )
 }

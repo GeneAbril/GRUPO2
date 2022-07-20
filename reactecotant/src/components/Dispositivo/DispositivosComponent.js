@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
+import { getAll,eliminarDispositivo, saveDispositivo } from '../../services/DispositivoService';
 import CardDispositivoComponent from "./CardDispositivoComponent"
 import ModalDispositivoComponent from './ModalDispositivoComponent';
 
@@ -16,9 +17,10 @@ const initialValue = [{
     fecha:''
 }]
 
-const DispositivosComponent = () => {
+const DispositivoComponent = () => {
 
-const [dispositivos, setDispositivos] = useState(initialValue)
+const [dispositivos, setDispositivos] = useState(initialValue);
+const [dispositivoEditado, setDispositivoEditado] = useState(null);
 
 const url = 'http://localhost:8080/api/dispositivos/lista'
 //peticion asincrona
@@ -38,6 +40,22 @@ useEffect(
     ()=>{obtenerDispisitivos()}
 ,[])
 
+const tarjetaDelete = async(dispositivoId) => {
+    //espera que traiga la respuesta y actualiza lista de dispositivos
+    await eliminarDispositivo(dispositivoId)
+    setDispositivos(await getAll())
+}
+
+const dispositivoAdd = async(dispositivo) => {
+    await saveDispositivo(dispositivo)
+    setDispositivos(await getAll())
+}
+
+const dispositivoEdit = (dispositivoEditado) => {
+    const changeDispositivos = dispositivos.map(dispositivo => (dispositivo.key === dispositivoEditado.key ? dispositivoEditado : dispositivo))
+    setDispositivos(changeDispositivos)
+}
+
 
 
 
@@ -51,12 +69,19 @@ return (
         <hr/>
 
         {// recorre el array y crea una tarjeta por cada elemento dentro de este y le entregará el contendido del objeto
-            dispositivos.map((dispositivo, index) => <CardDispositivoComponent key={index} dispositivo={dispositivo} />)
+            dispositivos.map((dispositivo, index) => <CardDispositivoComponent 
+            key={index} 
+            dispositivo={dispositivo}
+            dispositivoAdd={dispositivoAdd}
+            dispositivoEdit={dispositivoEdit}
+            tarjetaDelete={tarjetaDelete} 
+            setDispositivoEditado={setDispositivoEditado}
+            />)
         }
 
     </div>
     )
 }
 
-export default DispositivosComponent;
+export default DispositivoComponent;
 

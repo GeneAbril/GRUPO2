@@ -1,7 +1,7 @@
 import React from "react";
 import planta from "../../assets/img/corona.png"
 
-const CardDispositivoComponent = ({ dispositivo }) => {
+const CardDispositivoComponent = ({ dispositivo, tarjetaDelete, setDispositivoEditado }) => {
 
 
     return (
@@ -18,10 +18,17 @@ const CardDispositivoComponent = ({ dispositivo }) => {
                             <label className="form-check-label" htmlFor="inlineCheckbox1">Temperatura</label>
                             <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" checked={dispositivo.temperatura} /> 
                         </div>
+                        
                         <div className="form-check form-check-inline">
                             <label className="form-check-label" htmlFor="inlineCheckbox1">Humedad</label>
                             <input className="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1" checked={dispositivo.humedad} /> 
                         </div>
+                        
+                        <div className="d-flex justify-content-end">
+                        <button className="btn btn-sm btn-outline-primary me-2" onClick={()=>setDispositivoEditado(dispositivo)}>Editar</button>
+                        <button className="btn btn-sm btn-outline-danger" onClick={() => tarjetaDelete(dispositivo.key)}>Eliminar</button>
+                        </div>
+                        
                     </div>
                     <div className="col">
 

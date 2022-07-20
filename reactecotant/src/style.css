@@ -20,10 +20,13 @@ html, body{
     background-color: rgba(0, 0, 0, .1);
 }
 
-.caja{
+.caja1{
+    align-items: center;
+}
+.caja2{
     width: 400px;
     height: 400px;
-   background-color:mediumseagreen;
+   background-color:rgb(67, 126, 59);
    align-items: center;
    border: 3px solid black;
    border-style: dotted;
