@@ -1,4 +1,5 @@
 import React from 'react';
+import Example from './CarruselComponent';
 
 
 
@@ -6,9 +7,7 @@ import React from 'react';
 const HomeComponent = () => {
     return (
         <div>
-            <h1>HomeComponent</h1>
-            <hr />
-            
+            <Example/>
         </div>
     )
 }

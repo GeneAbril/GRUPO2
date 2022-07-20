@@ -10,17 +10,17 @@ import {
 //carrusel index
 const items = [
     {
-      src:require('./img/images.jpg'),
+      src:require('../assets/img/arduino.jpg'),
       altText: 'imagen1',
       caption: 'ARDUINO '
     },
     {
-        src:require('./img/sobre nosotros.jpg'),
+        src:require('../assets/img/planta.jpg'),
       altText: 'Slide 2',
       caption: 'SOBRE NOSOTROS'
     },
     {
-        src:require('./img/contactanos.jpg'),
+        src:require('../assets/img/arduino.jpg'),
       altText: 'Slide 3',
       caption: 'CONTACTANOS'
     }
