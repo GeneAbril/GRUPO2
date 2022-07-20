@@ -12,5 +12,24 @@ html, body{
     height:100% !important;
 }
 
+.card-dispositivos {
+    cursor: pointer;
+}
+
+.card-dispositivos:hover {
+    background-color: rgba(0, 0, 0, .1);
+}
+
+.caja{
+    width: 400px;
+    height: 400px;
+   background-color:mediumseagreen;
+   align-items: center;
+   border: 3px solid black;
+   border-style: dotted;
+   text-align: center;
+   border-radius: 10px;
+}
+    
 
 

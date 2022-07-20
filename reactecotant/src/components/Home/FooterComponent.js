@@ -6,7 +6,7 @@ const FooterComponent = () =>{
             <div className="d-flex justify-content-between">
                 <div className="p-2 "><p className="text-center text-muted">@ 2022, EcoTank.inc</p></div>
                 <div className="align-items-end text-muted">
-                    <ul className="nav p-2 text-light me-3 text-muted">
+                    <ul className="nav pb-2 text-light me-3 text-muted">
                         <li className="nav-item me-3 ">Home</li>
                         <li className="nav-item ">Prueba</li>
                     </ul>

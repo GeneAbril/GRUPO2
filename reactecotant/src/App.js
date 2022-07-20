@@ -1,14 +1,14 @@
 import React from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 // import HeaderComponent from './components/HeaderComponent';
-import AgregarComentarioComponent from './components/AgregarComentarioComponent';
-import DispositivosComponent from './components/DispositivosComponent';
-import FooterComponent from './components/FooterComponent';
-import GraficosComponent from './components/GraficosComponent';
-import HeaderComponent from './components/HeaderComponent';
-import HomeComponent from './components/HomeComponent';
-import LoginComponent from './components/LoginComponent';
-import RegisterComponent from './components/RegisterComponent';
+import AgregarComentarioComponent from './components/Plantas/AgregarComentarioComponent';
+import DispositivosComponent from './components/Dispositivo//DispositivosComponent';
+import FooterComponent from './components/Home/FooterComponent';
+import GraficosComponent from './components/Graficas/GraficosComponent';
+import HeaderComponent from './components/Home/HeaderComponent';
+import HomeComponent from './components/Home/HomeComponent';
+import LoginComponent from './components/Login/LoginComponent';
+import RegisterComponent from './components/Login/RegisterComponent';
 
 
 const App = () => {
@@ -16,7 +16,7 @@ const App = () => {
     <BrowserRouter>
       <HeaderComponent />
 
-      <div className='container'>
+      <div className='container-fluid'>
 
         <Routes>
           <Route path="/" element={<HomeComponent />} />

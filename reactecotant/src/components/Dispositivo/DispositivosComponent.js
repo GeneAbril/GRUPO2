@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
 import CardDispositivoComponent from "./CardDispositivoComponent"
+import ModalDispositivoComponent from './ModalDispositivoComponent';
 
 //array con 2 objetos
 const initialValue = [{
@@ -42,8 +43,11 @@ useEffect(
 
 
 return (
-    <div>
+    <div className='container'>
         <h1>Dispositivos</h1>
+        <button type="button" className="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalDispositivo"
+            data-bs-whatever="@mdo">Agregar dispositivo</button>
+        <ModalDispositivoComponent/>
         <hr/>
 
         {// recorre el array y crea una tarjeta por cada elemento dentro de este y le entregará el contendido del objeto

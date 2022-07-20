@@ -10,17 +10,17 @@ import {
 //carrusel index
 const items = [
     {
-      src:require('../assets/img/arduino.jpg'),
+      src:require('../../assets/img/arduino.jpg'),
       altText: 'imagen1',
       caption: 'ARDUINO '
     },
     {
-        src:require('../assets/img/planta.jpg'),
+        src:require('../../assets/img/planta.jpg'),
       altText: 'Slide 2',
       caption: 'SOBRE NOSOTROS'
     },
     {
-        src:require('../assets/img/arduino.jpg'),
+        src:require('../../assets/img/arduino.jpg'),
       altText: 'Slide 3',
       caption: 'CONTACTANOS'
     }
@@ -72,7 +72,7 @@ const items = [
             onExited={this.onExited}
             key={item.src}
           >
-            <img class="p-4 pb-4" src={item.src} alt={item.altText} width="100%" height="500px"/>
+            <img class="pt-5" src={item.src} alt={item.altText} width="100%" height="720px"/>
             <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
           </CarouselItem>
         );

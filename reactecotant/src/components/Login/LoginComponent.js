@@ -34,11 +34,10 @@ const LoginComponent = () => {
   }
 
   return (
-    <div class = "prueba1">
-    <div>
+    <div className='caja'>
       <h1>Login</h1>
       <hr />
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} >
         <div className="mb-3">
           <label htmlFor="correo" className="form-label">Email address</label>
           <input type="email" className="form-control" onChange={handleChange} name='correo' value={correo} id="correo"  />
@@ -50,7 +49,6 @@ const LoginComponent = () => {
         <button type="submit" className="btn btn-success">Registrar</button>
       </form>
 
-    </div>
     </div>
   )
 }
