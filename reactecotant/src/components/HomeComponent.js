@@ -1,4 +1,7 @@
-import React from 'react'
+import React from 'react';
+
+
+
 
 const HomeComponent = () => {
     return (
@@ -10,4 +13,4 @@ const HomeComponent = () => {
     )
 }
 
-export default HomeComponent
+export default HomeComponent;
