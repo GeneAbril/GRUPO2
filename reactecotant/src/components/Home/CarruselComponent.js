@@ -68,18 +68,20 @@ class Example extends Component {
     const slides = items.map((item) => {
       return (
         <CarouselItem
-        // className='d-flex pt-5'
+        className='pt-3'
           onExiting={this.onExiting}
           onExited={this.onExited}
           key={item.src}
         >
-          <img class="pt-5" src={item.src} alt={item.altText} width="100%" height="720px" />
+          <div className='d-flex'>
+          <img className="" src={item.src} alt={item.altText} width="100%" height="720px" />
           <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
-          {/* <div className='w-50 bg-dark text-white'>
+          <div className='w-50 bg-dark text-white'>
             <div className='p-5'>
-              <span>asdsadasd</span>
+              <span>{item.altText}</span>
             </div>
-          </div> */}
+          </div>
+          </div>
         </CarouselItem>
       );
     });

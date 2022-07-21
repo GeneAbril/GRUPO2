@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import corona from "../../assets/img/corona.png"
 import { getSession, setSession } from '../../persistencia/dataUsuario';
 
@@ -10,11 +10,14 @@ const initalValue = {
   clave: ''
 }
 
-const LoginComponent = ({setStateSession}) => {
+const LoginComponent = ({ setStateSession }) => {
 
   const [value, setValue] = useState(initalValue)
+  const [respuesta, setRespuesta] = useState(null)
 
   const { correo, clave } = value;
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const newValue = {
@@ -27,15 +30,21 @@ const LoginComponent = ({setStateSession}) => {
 
   const validarUsuario = async () => {
 
-    const response = await axios.post('http://3.19.188.80/api/usuarios/ingresar', value)
-    // console.log(response.data)
-    return response.data
+    try {
+      const response = await axios.post('http://3.19.188.80/api/usuarios/ingresar', value)
+      setSession(await response.data);
+      await setStateSession(getSession())
+      return response.data
+    } catch (error) {
+      return 'error';
+    }
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const session = setSession(await validarUsuario());
-    await setStateSession(getSession())
+    setRespuesta(await validarUsuario())
+
+
   }
 
   return (
@@ -49,6 +58,7 @@ const LoginComponent = ({setStateSession}) => {
           <h1>Iniciar Sesion</h1>
           <hr />
           <form onSubmit={handleSubmit} >
+            {respuesta != null ? respuesta != 'error' ? navigate('/dispositivos') : 'Datos incorrectos' : ''}
             <div className="mb-3">
               <label htmlFor="correo" className="form-label">Correo</label>
               <input type="email" className="form-control" onChange={handleChange} name='correo' value={correo} id="correo" />
@@ -57,7 +67,7 @@ const LoginComponent = ({setStateSession}) => {
               <label htmlFor="clave" className="form-label">Password</label>
               <input type="password" className="form-control" onChange={handleChange} name='clave' value={clave} id="clave" />
             </div>
-            <button type="submit" className="btn btn-success">Conectarse</button>         
+            <button type="submit" className="btn btn-success">Conectarse</button>
             <br />
             <Link to="/register"><p>Registrarse</p></Link>
           </form>

@@ -23,7 +23,7 @@ const App = () => {
     <BrowserRouter>
       <HeaderComponent setStateSession={setStateSession} stateSession={stateSession}/>
 
-      <div className='container-fluid'>
+      <div className='container-fluid '>
 
         <Routes>
           <Route path="/" element={<HomeComponent />} />

@@ -13,8 +13,7 @@ const ListaPlantaComponent=() =>{
 
     return (
     <>
-    <th class="table-light" scope="col">Planta</th>
-    <td class=""><br/> <a href="plantas.html" class="text-decoration-none text-white border-2 btn btn-secondary btn-sm mb-5">Ver</a></td>
+    <div className="btn btn-outline-success m-1"> <i class="fa-solid fa-seedling"></i> Planta</div>
     </>)
 }
 

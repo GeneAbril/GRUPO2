@@ -1,23 +1,28 @@
 import React, { useState } from 'react';
+import { getSession } from '../../persistencia/dataUsuario';
 
 const initialValue = {
     nombre: '',
     temperatura: false,
-    humedad: true
+    humedad: true,
+    arduino: ''
 }
 
 const ModalDispositivoComponent = ({ dispositivoAdd, dispositivoEditado, dispositivoEdit, setDispositivoEditado }) => {
 
     const [values, setValues] = useState(initialValue);
 
-    const { nombre, temperatura, humedad } = values;
+    const { nombre, temperatura, humedad, arduino } = values;
 
-
+    const listUsers = {
+        ...getSession()
+    }
 
     const handleChange = (e) => {
 
         const changedFormValue = {
             ...values,
+            listUsers,
             [e.target.name]: e.target.value
             //key:key
         }
@@ -45,10 +50,9 @@ const ModalDispositivoComponent = ({ dispositivoAdd, dispositivoEditado, disposi
                             <div className="">
                                 <label htmlFor="recipient-name" className="col-form-label">Nombre de dispositivo:</label>
                                 <input type="text" onChange={handleChange} name="nombre" value={nombre} className="form-control" id="recipient-name" />
-                                <label htmlFor="recipient-name" className="col-form-label">Selecciona las propiedades a
-                                    medir:</label><br/>
-                                <label htmlFor="html">Temperatura</label> <input type="checkbox" onChange={handleChange} name="temperatura" value={temperatura} /><br />
-                                <label htmlFor="html">Humedad</label> <input type="checkbox" onChange={handleChange} name="humedad" value={humedad} /><br />
+                                <label htmlFor="recipient-name" className="col-form-label">Id Arduino:</label>
+                                <input type="text" onChange={handleChange} name="arduino" value={arduino} className="form-control" id="recipient-name" />
+                                
                             </div>
                             <div className="modal-footer">
                                 <input type="submit" className="btn btn-dark" data-bs-dismiss="modal" value="Crear Dispositivo" />
