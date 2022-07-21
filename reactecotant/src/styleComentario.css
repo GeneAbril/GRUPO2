@@ -1,0 +1,23 @@
+.styleComentario{
+    background-image: url('./assets/img/cuaderno.png')  ;
+    background-size: contain;
+    padding:0;
+    vertical-align:middle;
+    
+}
+
+.fijar{
+    height:500px;
+    margin:0;
+    overflow-y:scroll;
+
+}
+
+.barra{
+    overflow-y: auto;
+}
+
+.stylePlanta{
+    background-image: url('./assets/img/cuaderno.png');
+    background-size: contain;
+}

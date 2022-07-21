@@ -12,7 +12,7 @@ const items = [
   {
     src: require('../../assets/img/arduino.jpg'),
     altText: 'imagen1',
-    caption: 'ARDUINO y maaaaaaas '
+    caption: 'ARDUINO'
   },
   {
     src: require('../../assets/img/planta.jpg'),

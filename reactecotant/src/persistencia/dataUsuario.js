@@ -10,4 +10,5 @@ export const setSession = (usuario) => {
 
 export const exitSession = () => {
     localStorage.clear()
+    return null;
 }

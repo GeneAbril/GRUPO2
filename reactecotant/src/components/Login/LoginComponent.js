@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react'
 import { Link } from "react-router-dom";
 import corona from "../../assets/img/corona.png"
-import { setSession } from '../../persistencia/dataUsuario';
+import { getSession, setSession } from '../../persistencia/dataUsuario';
 
 
 const initalValue = {
@@ -27,7 +27,7 @@ const LoginComponent = ({setStateSession}) => {
 
   const validarUsuario = async () => {
 
-    const response = await axios.post('http://localhost:8080/api/usuarios/ingresar', value)
+    const response = await axios.post('http://3.19.188.80/api/usuarios/ingresar', value)
     // console.log(response.data)
     return response.data
   }
@@ -35,7 +35,7 @@ const LoginComponent = ({setStateSession}) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const session = setSession(await validarUsuario());
-    setStateSession(session)
+    await setStateSession(getSession())
   }
 
   return (

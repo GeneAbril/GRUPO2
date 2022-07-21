@@ -83,7 +83,7 @@ export default function LineChartComponent(){
 
 useEffect(() => {
     const fetchData = async() => {
-        const baseUrl = "http://localhost:8080/api/mediciones/lista";
+        const baseUrl = "http://3.19.188.80/api/mediciones/lista";
         const datasets1 = [];
         const datasets2 = [];
 

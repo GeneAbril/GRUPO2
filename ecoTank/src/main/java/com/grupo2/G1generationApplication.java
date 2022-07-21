@@ -20,7 +20,7 @@ public class G1generationApplication {
         ajpConnector.setPort(9080);
         ajpConnector.setSecure(false);
         ajpConnector.setAllowTrace(false);
-        ajpConnector.setScheme("http");
+        ajpConnector.setScheme("https");
 ((AbstractAjpProtocol) ajpConnector.getProtocolHandler()).setSecretRequired(false);
         tomcat.addAdditionalTomcatConnectors(ajpConnector);
         return tomcat;
