@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React,{ useEffect, useState } from "react";
 
 
 
@@ -43,9 +43,8 @@ const AgregarComentarioComponent = ({comentarioEditado}) => {
         }
 
     return(
-    <form>
-        <h1>Comentarios</h1>
-        <hr/>
+    <form className="col">
+        
         <div className="form-group">
             <input
                         type='text'

@@ -1,7 +1,7 @@
 import React,{useState,useCallBack} from "react";
 import AgregarComentarioComponent from "./AgregarComentarioComponent";
 import TarjetaComentario from "./TarjetaComentario";
-import TarjetaPlantaComponent from "./TarjetaPlantaComponent";
+import TarjetaPlantaComponents from "./TarjetaPlantaComponents";
 import '../../styleComentario.css';
 
 
@@ -80,6 +80,11 @@ const initialComentarios = [
         }
     
     ]
+
+const planta={
+    key:0,
+    nombre:'prueba'
+}
 const ComentarioComponent = () => {
 
     const [comentarios, setComentarios] = useState(initialComentarios);
@@ -88,10 +93,16 @@ const ComentarioComponent = () => {
 
 
     return(
-        <div className="container mt-5 ">
-                <div className='row m-0 border'>
-                    <TarjetaPlantaComponent planta= {planta}/>
+        <div className="container my-5 ">
+            <div >
+                <h1>Destalles Planta:</h1>
+                <hr></hr>
+            </div>
+                <div className='row m-0  p-2 fijarPlanta'>
+                    <TarjetaPlantaComponents planta= {planta}/>
                 </div>
+                <h1>Comentarios:</h1>
+                <hr/>
                 <div className='row mt-3 border'>
                     <AgregarComentarioComponent comentarioEditado = {comentarioEditado}/>
                 </div>
