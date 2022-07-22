@@ -11,18 +11,27 @@ import {
 const items = [
   {
     src: require('../../assets/img/arduino.jpg'),
-    altText: 'imagen1',
-    caption: 'ARDUINO'
+    altText: 'Nuestro Producto',
+    caption: 'ARDUINO',
+    text1:'Utilizaremos un microcontrolador NodeMCU el cual usa un modulo ESP8266 para conectarse a internet vía wifi, tambien necesitamos un sensor de temperatura y humedad DTH 11, el cual nos entregara los datos que necesitamos',
+    text2:'Programaremos el NodeMCU con el IDE de Arduino e importaremos las librerias que necesitaremos. (Podras encontrar el codigo dentro de la carpeta Arduino). Una vez que tengamos el codigo que utilizaremos, sera momento de conectarlo a travez de una api con node.js. Esto nos permitira visualizar los datos realizando peticiones POST a nuestro servidor',
+    text3: 'Posteriormente conectaremos nuestra API a la base de datos donde se iran almacenando los datos recolectados, para luego mostrarlos a traves de una pagina web'
   },
   {
     src: require('../../assets/img/planta.jpg'),
     altText: 'Slide 2',
-    caption: 'SOBRE NOSOTROS'
+    caption: 'SOBRE NOSOTROS',
+    text1:'Nuestro Producto Se enfoca en la ',
+    text2:'Programaremos el NodeMCU con el IDE de Arduino e importaremos las librerias que necesitaremos. (Podras encontrar el codigo dentro de la carpeta Arduino). Una vez que tengamos el codigo que utilizaremos, sera momento de conectarlo a travez de una api con node.js. Esto nos permitira visualizar los datos realizando peticiones POST a nuestro servidor',
+    text3: 'Posteriormente conectaremos nuestra API a la base de datos donde se iran almacenando los datos recolectados, para luego mostrarlos a traves de una pagina web'
   },
   {
     src: require('../../assets/img/cal center.jpg'),
     altText: 'Slide 3',
-    caption: 'CONTACTANOS'
+    caption: 'CONTACTANOS',
+    text1:'Utilizaremos un microcontrolador NodeMCU el cual usa un modulo ESP8266 para conectarse a internet vía wifi, tambien necesitamos un sensor de temperatura y humedad DTH 11, el cual nos entregara los datos que necesitamos',
+    text2:'Programaremos el NodeMCU con el IDE de Arduino e importaremos las librerias que necesitaremos. (Podras encontrar el codigo dentro de la carpeta Arduino). Una vez que tengamos el codigo que utilizaremos, sera momento de conectarlo a travez de una api con node.js. Esto nos permitira visualizar los datos realizando peticiones POST a nuestro servidor',
+    text3: 'Posteriormente conectaremos nuestra API a la base de datos donde se iran almacenando los datos recolectados, para luego mostrarlos a traves de una pagina web'
   }
 ];
 
@@ -74,11 +83,15 @@ class Example extends Component {
           key={item.src}
         >
           <div className='d-flex'>
-            <img className="" src={item.src} alt={item.altText} style={{ weigth: "100%", height: "100%" }} />
+            <img className='w-60' src={item.src} alt={item.altText} style={{width:'85%', height:'620px'}} />
             <CarouselCaption captionHeader={item.caption} />
             <div className='w-50 text-white bg-carrousel'>
               <div className='p-5'>
-                <span>{item.altText}</span>
+                <h1 className='text-center'>{item.altText}</h1>
+                <br/>
+                <p>{item.text1}</p>
+                <p>{item.text2}</p>
+                <p>{item.text3}</p>
               </div>
             </div>
           </div>

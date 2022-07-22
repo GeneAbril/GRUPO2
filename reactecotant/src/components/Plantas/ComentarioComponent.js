@@ -95,7 +95,7 @@ const ComentarioComponent = () => {
                 <div className='row mt-3 border'>
                     <AgregarComentarioComponent comentarioEditado = {comentarioEditado}/>
                 </div>
-                <div className = 'row fijar border border-2 rounded bg-light p-1 mt-3' >
+                <div className = 'row fijar border border-2 rounded bg-light p-1 mt-3 mb-3' >
                     
                     <div className="row ">
                     

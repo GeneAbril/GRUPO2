@@ -1,9 +1,21 @@
-.padre {
-    height: 1000px;
+
+html{
+    height: 100%;
 }
 
-html, body{ 
-    height:100%;
+#root{
+    display: grid;
+   min-height: 100vh;
+   grid-template-rows: auto 1fr auto;
+}
+
+body{ 
+   display: grid;
+   min-height: 100vh;
+   grid-template-rows: auto 1fr auto;
+}
+
+footer{
 }
 #root{
     height:100% !important;
@@ -21,7 +33,7 @@ html, body{
 
 .caja1{
     display: block;
-    margin-top: 6%;
+    margin-top: 2em;
     margin-left: auto;
     margin-right: auto;
 }
@@ -35,6 +47,9 @@ html, body{
     border-style: groove;
     text-align: center;
     border-radius: 10px;
+}
+.error{
+    color: red;
 }
 .fondologin{
     position: fixed;
@@ -50,4 +65,15 @@ html, body{
 .bg-carrousel {
     background-color: rgba(33, 37, 41, .95);
     
+}
+
+.click {
+    cursor: pointer;
+}
+
+.nav-hover{
+    height: 100%;
+}
+.nav-hover:hover {
+    background-color: rgba(0, 0, 0, .5);
 }

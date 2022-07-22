@@ -6,7 +6,7 @@ import Example from './CarruselComponent';
 
 const HomeComponent = () => {
     return (
-        <div style={{height: "601.7px", overflow: "hidden"}}>
+        <div style={{height: "100vh", overflow: "hidden"}}>
             <Example />
         </div>
     )

@@ -13,8 +13,21 @@ import {
     Filler,
 } from "chart.js"
 //Importamos el grafico de linea desde la libreria react chart 
-import { Line } from "react-chartjs-2";
+import { Bar } from "react-chartjs-2";
 import axios from 'axios';
+import ChartDataLabels from 'chartjs-plugin-datalabels';
+import {Chart} from 'chart.js';
+
+// OR only to specific charts:
+// var Bar = new (ctx, {
+//     plugins: [ChartDataLabels],
+//     options: {
+//       // ...
+//     }
+//   })
+
+
+Chart.register(ChartDataLabels);
 
 //Registrar elementos para que aparescan unica y exclusivamente los que estamos utilizando dentro de la aplicacion
 ChartJS.register(
@@ -52,29 +65,18 @@ const options = {
         legend: {
             display: true,
         },
+        
     },
+    
+
 };
 
-export const TestComponent = () => {
+export const TestComponent = ({callFetch, setCallFetch, filtro}) => {
     //Memorizar los datos que le vamos a pasar a nuestro grafico
     const [data, setData] = useState();
-    const [filtro, setFiltro] = useState([])
-    const [callFetch, setCallFetch] = useState(null)
-    const baseUrl = "http://localhost:8080/api/mediciones/lista";
-    // const baseUrl = "http://3.19.188.80/api/mediciones/lista";
-
-
-    const fetchData = async () => {
-
-        const response = await axios.get(baseUrl)
-        setCallFetch(response.data)
-
-    }
-
-    useEffect(() => {
-
-        fetchData();
-    }, [])
+    const [detalleTemperatura, setDetalleTemperatura] = useState([0, 0, 0])
+    const [detalleHumedad, setDetalleHumedad] = useState([0, 0, 0])
+    // const baseUrl = "http://localhost:8080/api/mediciones/lista";
 
     useEffect(() => {
         // if (callFetch) {
@@ -97,24 +99,58 @@ export const TestComponent = () => {
 
     }, [])
 
+    const temperaturaDetalles = () => {
 
+        const filtroTemperatura = filtro.map(x => x.temperatura)
+        const mediaTemp = () => {
+            let media = 0;
+            filtroTemperatura.forEach(t => {
+                media += t
+            });
+            return media / filtroTemperatura.length
+        }
+        console.log('temperatura: ', Math.min(...filtroTemperatura))
+        setDetalleTemperatura([Math.min(...filtroTemperatura), Math.max(...filtroTemperatura), mediaTemp()])
+    }
+
+
+    const humedadDetalles = () => {
+
+        const filtroHumedad = filtro.map(x => x.humedad)
+        const mediaHum = () => {
+            let media = 0;
+            filtroHumedad.forEach(t => {
+                media += t
+            });
+            return media / filtroHumedad.length
+        }
+        console.log('humedad: ', Math.min(...filtroHumedad))
+        setDetalleHumedad([Math.min(...filtroHumedad), Math.max(...filtroHumedad), mediaHum()])
+    }
     // const filtroMin = 
 
     useEffect(() => {
         if (callFetch) {
 
 
+            if (filtro) {
 
+
+                temperaturaDetalles()
+                humedadDetalles()
+
+            }
 
             console.log(callFetch);
             // const ejex = mediciones.map(medicion => [medicion.temperatura, medicion.humedad])
             // console.log(ejex);
             setData({//Set de datos que se apliquen en nuestro grafico
-                labels: filtro.map(x => x.fecha),
+                labels: ["min", "max", "media"],
                 datasets: [
+                    
                     {
                         label: "Temperatura", //leyenda de nuestro graficos
-                        data: callFetch.map(x => x.temperatura), //Establecemos los datos
+                        data: detalleTemperatura, //Establecemos los datos
                         tension: 0.3, //curvatura a la recta entre 0-1
                         //color de la linea y/o bordes del grafico
                         borderColor: "rgb(255, 87, 51, 0.3)",
@@ -123,7 +159,7 @@ export const TestComponent = () => {
                     },
                     {
                         label: "Humedad", //leyenda de nuestro graficos
-                        data: callFetch.map(x => x.humedad), //Establecemos los datos
+                        data: detalleHumedad, //Establecemos los datos
                         tension: 0.3, //curvatura a la recta entre 0-1
                         //color de la linea y/o bordes del grafico
                         borderColor: "rgb(51, 91, 255, 0.3)",
@@ -133,7 +169,9 @@ export const TestComponent = () => {
                         pointBackgroundColor: ("rgb(51, 91, 255, 0.3)"),
                         //Colorear sector bajo la linea del grafico
                         backgroundColor: ("rgb(51, 91, 255, 0.3)"),
+                        
                     },
+                    
                 ],
             });
         }
@@ -142,20 +180,7 @@ export const TestComponent = () => {
     return (
         <>
             {
-                data ? [
-                    <button onClick={() => setFiltro(callFetch.filter(x => x))}>1 min</button>,
-                    <button onClick={() => setFiltro(callFetch.filter((x, index) => {
-                        if (index % 5 == 0) {
-                            return x
-                        }
-                        if(index == 0) return x
-                    }))}>5 min</button>,
-                    <button onClick={() => setFiltro(callFetch.filter((x, index) => {
-                        if (index % 10 == 0) {
-                            return x
-                        }
-                    }))}>10 min</button>,
-                    <Line data={data} options={options} />] : ''
+                data ? <Bar data={data} options={options} /> : ''
             }
         </>
     )

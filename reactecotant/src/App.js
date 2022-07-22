@@ -10,6 +10,7 @@ import HomeComponent from './components/Home/HomeComponent';
 import LoginComponent from './components/Login/LoginComponent';
 import RegisterComponent from './components/Login/RegisterComponent';
 import { getSession } from './persistencia/dataUsuario';
+import PreciosComponent from './components/precios/PreciosComponent';
 
 
 const App = () => {
@@ -27,7 +28,7 @@ const App = () => {
     <BrowserRouter>
       <HeaderComponent setStateSession={setStateSession} stateSession={stateSession}/>
 
-      <div style={{height: "100%", overflow:"hidden"}}>
+      <div className='' style={{height: "100vh"}}>
 
         <Routes>
           <Route path="/" element={<HomeComponent />} />
@@ -36,7 +37,9 @@ const App = () => {
           <Route path="/graficos" element={<GraficosComponent />} />
           <Route path="/login" element={<LoginComponent setStateSession={setStateSession} />} />
           <Route path="/register" element={<RegisterComponent />} />
-          <Route path="/dispositivos" element={<DispositivosComponent />} />
+          <Route path="/dispositivos" element={<DispositivosComponent />}/>
+          <Route path="/precios" element={<PreciosComponent />} />
+         
 
          
         </Routes>

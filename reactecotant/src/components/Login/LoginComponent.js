@@ -15,6 +15,10 @@ const LoginComponent = ({ setStateSession }) => {
   const [value, setValue] = useState(initalValue)
   const [respuesta, setRespuesta] = useState(null)
 
+  // respuesta = 'hola' // INCORRECTO
+  // setRespuesta('hola') // CORRECTO
+
+
   const { correo, clave } = value;
 
   const navigate = useNavigate();
@@ -43,8 +47,6 @@ const LoginComponent = ({ setStateSession }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setRespuesta(await validarUsuario())
-
-
   }
 
   return (
@@ -58,7 +60,9 @@ const LoginComponent = ({ setStateSession }) => {
           <h1>Iniciar Sesion</h1>
           <hr />
           <form onSubmit={handleSubmit} >
-            {respuesta != null ? respuesta != 'error' ? navigate('/dispositivos') : 'Datos incorrectos' : ''}
+            <div className='error'>
+              {respuesta != null ? respuesta != 'error' ? navigate('/dispositivos') : 'Datos incorrectos' : ''}
+            </div>
             <div className="mb-3">
               <label htmlFor="correo" className="form-label">Correo</label>
               <input type="email" className="form-control" onChange={handleChange} name='correo' value={correo} id="correo" />

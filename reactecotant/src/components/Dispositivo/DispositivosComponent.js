@@ -61,9 +61,13 @@ const DispositivoComponent = () => {
 
 
     return (
-        <div className='container'>
-            <h1>Dispositivos</h1>
-            <button type="button" className="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalDispositivo" data-bs-whatever="@mdo">Agregar dispositivo</button>
+        <div className='container' style={{height:'120vh'}}>
+            <div className='d-flex justify-content-between'>
+                <h1>Dispositivos</h1>
+                <div className='mt-3'>
+                    <button type="button" className="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalDispositivo" data-bs-whatever="@mdo">Agregar dispositivo</button>
+                </div>
+            </div>
             <ModalDispositivoComponent
                 dispositivoAdd={dispositivoAdd}
             />
