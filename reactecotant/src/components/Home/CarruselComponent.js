@@ -68,39 +68,41 @@ class Example extends Component {
     const slides = items.map((item) => {
       return (
         <CarouselItem
-        className='pt-3'
-          onExiting={this.onExiting}
+        style={{overflow:"hidden"}}
+        onExiting={this.onExiting}
           onExited={this.onExited}
           key={item.src}
         >
           <div className='d-flex'>
-          <img className="" src={item.src} alt={item.altText} width="100%" height="720px" />
-          <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
-          <div className='w-50 bg-dark text-white'>
-            <div className='p-5'>
-              <span>{item.altText}</span>
+            <img className="" src={item.src} alt={item.altText} style={{ weigth: "100%", height: "100%" }} />
+            <CarouselCaption captionHeader={item.caption} />
+            <div className='w-50 text-white bg-carrousel'>
+              <div className='p-5'>
+                <span>{item.altText}</span>
+              </div>
             </div>
-          </div>
           </div>
         </CarouselItem>
       );
     });
 
     return (
-      <div className="overflow-hidden">
+      // <div className="overflow-hidden">
 
-        <Carousel
+      <Carousel
 
-          activeIndex={activeIndex}
-          next={this.next}
-          previous={this.previous}
-        >
-          <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
-          {slides}
-          <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
-          <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
-        </Carousel>
-      </div>
+        style={{overflow:"hidden"}}
+        // className={{height: "81.7vh"}}
+        activeIndex={activeIndex}
+        next={this.next}
+        previous={this.previous}
+      >
+        <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
+        {slides}
+        <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} />
+        <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
+      </Carousel>
+      // </div>
     );
   }
 }

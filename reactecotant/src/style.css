@@ -46,3 +46,8 @@ html, body{
 .iconos {
     font-size: 50px;
 }
+
+.bg-carrousel {
+    background-color: rgba(33, 37, 41, .95);
+    
+}

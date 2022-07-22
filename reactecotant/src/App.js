@@ -14,16 +14,20 @@ import { getSession } from './persistencia/dataUsuario';
 
 const App = () => {
   const [stateSession, setStateSession] = useState(null)
+  
   useEffect(() => {
     setStateSession(getSession())
   }, [])
+
+
   
+
   
   return (
     <BrowserRouter>
       <HeaderComponent setStateSession={setStateSession} stateSession={stateSession}/>
 
-      <div className='container-fluid '>
+      <div style={{height: "100%", overflow:"hidden"}}>
 
         <Routes>
           <Route path="/" element={<HomeComponent />} />

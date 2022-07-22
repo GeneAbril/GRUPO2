@@ -24,13 +24,6 @@ const DispositivoComponent = () => {
     const [dispositivos, setDispositivos] = useState(null);
     const [dispositivoEditado, setDispositivoEditado] = useState(null);
 
-    const url = 'http://localhost:8080/api/dispositivos/lista'
-    //peticion asincrona
-    const llamarDispositivos = async () => {
-        const response = await axios.get(url)
-        console.log(response.data)
-        return response.data
-    }
 
     //Funcion para obtener dispositivos
     const obtenerDispisitivos = async () => {
@@ -41,7 +34,6 @@ const DispositivoComponent = () => {
     useEffect(
         () => {
             setTimeout(() => {
-
                 obtenerDispisitivos()
             }, 500);
 
@@ -71,33 +63,32 @@ const DispositivoComponent = () => {
     return (
         <div className='container'>
             <h1>Dispositivos</h1>
-            <button type="button" className="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalDispositivo"
-                data-bs-whatever="@mdo">Agregar dispositivo</button>
+            <button type="button" className="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalDispositivo" data-bs-whatever="@mdo">Agregar dispositivo</button>
             <ModalDispositivoComponent
                 dispositivoAdd={dispositivoAdd}
             />
             <hr />
-        <div className=''>
-            {// recorre el array y crea una tarjeta por cada elemento dentro de este y le entregará el contendido del objeto
+            <div className='d-flex justify-content-between flex-wrap'>
+                {// recorre el array y crea una tarjeta por cada elemento dentro de este y le entregará el contendido del objeto
 
-                dispositivos ?
-                    dispositivos.map((dispositivo, index) => <CardDispositivoComponent
-                        key={index}
-                        dispositivo={dispositivo}
-                        dispositivoAdd={dispositivoAdd}
-                        dispositivoEdit={dispositivoEdit}
-                        tarjetaDelete={tarjetaDelete}
-                        setDispositivoEditado={setDispositivoEditado}
-                    />)
-                    :
-                    <div className='d-flex justify-content-center my-auto'>
-                        <div className="spinner-border" role="status">
-                            <span className="sr-only">Loading...</span>
+                    dispositivos ?
+                        dispositivos.map((dispositivo, index) => <CardDispositivoComponent
+                            key={index}
+                            dispositivo={dispositivo}
+                            dispositivoAdd={dispositivoAdd}
+                            dispositivoEdit={dispositivoEdit}
+                            tarjetaDelete={tarjetaDelete}
+                            setDispositivoEditado={setDispositivoEditado}
+                        />)
+                        :
+                        <div className='d-flex justify-content-center my-auto'>
+                            <div className="spinner-border" role="status">
+                                <span className="sr-only">Loading...</span>
+                            </div>
                         </div>
-                    </div>
-            }
+                }
 
-        </div>
+            </div>
         </div>
     )
 }

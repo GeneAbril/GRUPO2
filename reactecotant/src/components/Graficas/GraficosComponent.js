@@ -1,6 +1,7 @@
 import React from 'react'
 import LineChartComponent from './LineChartComponent'
 import BarChartComponent from './BarChartComponent'
+import { TestComponent } from './TestComponent'
 
 
 const GraficosComponent = () => {
@@ -13,10 +14,11 @@ const GraficosComponent = () => {
         <div className = 'container-fluid'>
           <div className = 'row'>
             <div className = 'col'>
-              <LineChartComponent/>
+              {/* <LineChartComponent/> */}
             </div>
             <div className = 'col'>
-              <BarChartComponent/>
+              {/* <BarChartComponent/> */}
+              <TestComponent/>
             </div>  
           </div>
         </div>

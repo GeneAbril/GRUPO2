@@ -10,8 +10,6 @@ const HeaderComponent = ({setStateSession, stateSession}) => {
 
     const navigate = useNavigate();
 
-    
-
     return (
         <nav className="navbar navbar-light bg-dark p-2">
             <div className="container">
