@@ -13,10 +13,10 @@ const HeaderComponent = ({ setStateSession, stateSession }) => {
     const navigate = useNavigate();
 
     return (
-        <nav className="navbar navbar-light bg-dark p-2 row">
-            <div className="container ">
-                <div className="col-2"></div>
-                <div className="col-2">
+        <nav className="navbar navbar-light bg-dark p-2 ">
+            <div className="container row ">
+                <div className="col-1"></div>
+                <div className="col">
                     <Link class="pt-1" to="/">
                         <img src={LogoEcoTank} alt="" width="50" height="50" className="d-inline-block align-top" />
                         <h1 className="ms-3 d-inline-block text-white">EcoTank</h1>
@@ -49,7 +49,7 @@ const HeaderComponent = ({ setStateSession, stateSession }) => {
                                     <p className="text-white mt-3 me-3">{sessionActual.nombre}</p>
                                     <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" width="50px" height="50px" alt="" />
                                 </div>
-                                <button type="button" onClick={() => { setStateSession(exitSession()); navigate('/login') }} className="btn-close bg-light" aria-label="Close" ></button>
+                                <button type="button" onClick={() => { setStateSession(exitSession()); navigate('/login') }} className="btn-close mt-3 ms-3 bg-secondary" aria-label="Close" ></button>
                             </div>
                             :
                             <div className="d-flex">

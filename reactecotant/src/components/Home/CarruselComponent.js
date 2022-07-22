@@ -19,7 +19,7 @@ const items = [
   },
   {
     src: require('../../assets/img/planta.jpg'),
-    altText: 'Slide 2',
+    altText: 'Acerca de 2',
     caption: 'SOBRE NOSOTROS',
     text1:'Nuestro Producto Se enfoca en la ',
     text2:'Programaremos el NodeMCU con el IDE de Arduino e importaremos las librerias que necesitaremos. (Podras encontrar el codigo dentro de la carpeta Arduino). Una vez que tengamos el codigo que utilizaremos, sera momento de conectarlo a travez de una api con node.js. Esto nos permitira visualizar los datos realizando peticiones POST a nuestro servidor',

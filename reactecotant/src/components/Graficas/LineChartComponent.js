@@ -1,5 +1,5 @@
 /*useMemosolo volverá a calcular el valor memorizado cuando una de las dependencias haya cambiado. Esta optimización ayuda a evitar cálculos costosos en cada renderizado*/
-import { useMemo, useEffect, useState } from "react"; //hook useMemo 
+import { useMemo, useEffect, useState } from "react"; //hook useMemo
 /*importamos elementos de la libreria chart.js que nos permiten modificar distintos aspectos de nuestros graficos como tambien que tipo de grafico queremos utilizar */
 import {
     Chart as ChartJS,
@@ -12,7 +12,7 @@ import {
     Legend,
     Filler,
 } from "chart.js"
-//Importamos el grafico de linea desde la libreria react chart 
+//Importamos el grafico de linea desde la libreria react chart
 import { Line } from "react-chartjs-2";
 import axios from 'axios';
 
@@ -45,7 +45,7 @@ const options = {
             min: 0,
             max: 200
         },
-        
+
 
     },
     plugins: { //propiedad plugins
@@ -78,7 +78,7 @@ export const LineChartComponent = ({callFetch, setCallFetch, filtro, setFiltro})
     useEffect(() => {
         // if (callFetch) {
 
-        //     
+        //
 
         //     const filtro10Min = callFetch.filter((x, index) => {
         //         if (index % 10 == 0) {
@@ -97,7 +97,7 @@ export const LineChartComponent = ({callFetch, setCallFetch, filtro, setFiltro})
     }, [])
 
 
-    // const filtroMin = 
+    // const filtroMin =
 
     useEffect(() => {
         if (callFetch) {
@@ -120,6 +120,8 @@ export const LineChartComponent = ({callFetch, setCallFetch, filtro, setFiltro})
                         tension: 0.3, //curvatura a la recta entre 0-1
                         //color de la linea y/o bordes del grafico
                         borderColor: "rgb(255, 87, 51, 0.3)",
+                        //Incrementar tamaño de los puntos
+                        pointRadius: 0,
                         //Colorear sector bajo la linea del grafico
                         backgroundColor: ("rgb(255, 87, 51, 0.3)"),
                     },
@@ -133,13 +135,13 @@ export const LineChartComponent = ({callFetch, setCallFetch, filtro, setFiltro})
                         //color de la linea y/o bordes del grafico
                         borderColor: "rgb(51, 91, 255, 0.3)",
                         //Incrementar tamaño de los puntos
-                        pointRadius: 6,
+                        pointRadius: 0,
                         //Colorear los puntos
                         pointBackgroundColor: ("rgb(51, 91, 255, 0.3)"),
                         //Colorear sector bajo la linea del grafico
                         backgroundColor: ("rgb(51, 91, 255, 0.3)"),
                     },
-                    
+
                 ],
             });
         }
@@ -152,4 +154,4 @@ export const LineChartComponent = ({callFetch, setCallFetch, filtro, setFiltro})
             }
         </>
     )
-}; 
+};

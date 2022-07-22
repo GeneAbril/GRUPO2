@@ -9,10 +9,10 @@ const PreciosComponent = () => {
         <div className=' align-self-center border border-dark'>
           <h2 class="text-center text-white bg-success p-2">MES DE PRUEBA</h2>
           <ol class=" col ">
-            <ul class="text-center">DISFRUTA DE NUESTRO SERVICIO POR UN MES, TOTALMENTE GRATIS.</ul>
+            <h5 class="text-center">DISFRUTA DE NUESTRO SERVICIO POR UN MES, TOTALMENTE GRATIS.</h5>
             <br />
             <div className='col text-center mt-2 mb-2'>
-              <button type="button" class="btn btn-outline-success">EMPEZAR MES DE PRU</button>
+              <button type="button" class="btn btn-outline-success">EMPEZAR MES DE PRUEBA</button>
             </div>
           </ol>
         </div>

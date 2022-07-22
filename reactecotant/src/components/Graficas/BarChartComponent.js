@@ -38,6 +38,7 @@ const options ={
     scales:{
         y:{
             min:0,
+           
         },
     },
     plugins:{ //propiedad plugins

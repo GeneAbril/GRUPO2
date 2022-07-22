@@ -52,7 +52,10 @@ const options = {
 
         y: {
             min: 0,
-            max: 100
+            max: 100,
+            grid:{
+                display:false
+            }
         },
         x: {
             min: 0,

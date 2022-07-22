@@ -12,6 +12,7 @@ const GraficosComponent = () => {
   const baseUrl = "http://3.19.188.80/api/mediciones/lista";
   const fetchData = async () => {
     const response = await axios.get(baseUrl)
+    const normalizarArray = await response.data.map(x => x)
     setCallFetch(response.data)
   }
 
