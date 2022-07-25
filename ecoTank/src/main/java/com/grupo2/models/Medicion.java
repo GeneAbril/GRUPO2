@@ -1,5 +1,7 @@
 package com.grupo2.models;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Date;
 
 import javax.persistence.Column;
@@ -26,6 +28,9 @@ public class Medicion {
 	@GeneratedValue(strategy = GenerationType.IDENTITY) //Se le asigna como Primary Key
 	private Long id;
 	
+	//Unique ID asociada a dispositivo
+	private String uniqueId;
+	
 	//Variable Temperatura
 	private Float temperatura;
 	
@@ -33,8 +38,8 @@ public class Medicion {
 	private Float humedad;
 	
 	//Variable Fecha | @JsonFormat: para dar el formato de la fecha al json 
-	@JsonFormat(pattern = "yyyy-MM-dd")
-	private Date fecha;
+	@JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
+	private Date fecha = new Date();
 	
 	//Columnas de Fecha/tiempo
 	@Column(updatable = false) // esta columna especifica nunca se va a actualizar atravez del sistema
@@ -52,9 +57,10 @@ public class Medicion {
 	}
 
 	//Constructor | Con parametros
-	public Medicion(Float temperatura, Float humedad, Date fecha, Dispositivo dispositivo) {
+	public Medicion(Float temperatura, String uniqueId, Float humedad, Date fecha, Dispositivo dispositivo) {
 		super();
 		this.temperatura = temperatura;
+    	this.uniqueId = uniqueId;
 		this.humedad = humedad;
 		this.fecha = fecha;
 		this.dispositivo = dispositivo;
@@ -70,7 +76,14 @@ public class Medicion {
 		this.id = id;
 	}
 
+    public String getUniqueId() {
+        return uniqueId;
+    }
 
+    public void setUniqueId(String uniqueId) {
+        this.uniqueId = uniqueId;
+    }
+	
 	public Float getTemperatura() {
 		return temperatura;
 	}

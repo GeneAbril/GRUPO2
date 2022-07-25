@@ -1,7 +1,9 @@
 package com.grupo2.models;
 
+import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -10,8 +12,12 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 import javax.persistence.Transient;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 
 @Entity
@@ -33,6 +39,7 @@ public class Usuario {
 	private String claveConfirmacion;
 
 	@ManyToMany(fetch = FetchType.EAGER)
+	@JsonIgnoreProperties("listaUsuarios")
 	@JoinTable(
 		name = "dispositivos_usuarios",
 		joinColumns = @JoinColumn(name = "usuario_id", nullable = false),
@@ -40,6 +47,11 @@ public class Usuario {
 
 	)
 	private List<Dispositivo> listaDispositivos;
+	
+	@Column(updatable = false)
+	private Date createdAt;
+
+	private Date updatedAt;
 	
 	//constructores
 	public Usuario() {
@@ -104,5 +116,20 @@ public class Usuario {
 		this.claveConfirmacion = claveConfirmacion;
 	}
 	
-	
+	public List<Dispositivo> getListaDispositivos() {
+		return listaDispositivos;
+	}
+
+	public void setListaDispositivos(List<Dispositivo> listaDispositivos) {
+		this.listaDispositivos = listaDispositivos;
+	}
+
+    @PrePersist
+    protected void onCreate(){
+        this.createdAt = new Date();
+    }
+    @PreUpdate
+    protected void onUpdate(){
+        this.updatedAt = new Date();
+    }
 }

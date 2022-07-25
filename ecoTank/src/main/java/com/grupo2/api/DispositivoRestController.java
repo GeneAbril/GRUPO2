@@ -3,8 +3,6 @@ package com.grupo2.api;
 
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,7 +15,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.grupo2.models.Dispositivo;
+import com.grupo2.models.Usuario;
 import com.grupo2.services.DispositivoService;
+import com.grupo2.services.UsuarioService;
 
 @RestController
 @RequestMapping("/api/dispositivos")
@@ -28,6 +28,8 @@ public class DispositivoRestController {
     @Autowired
     DispositivoService  dispositivoService;
 
+    @Autowired
+    UsuarioService usuarioService;
 
     // Metodo que devuelva una lista de dispositivos
     @RequestMapping("/lista")
@@ -43,8 +45,11 @@ public class DispositivoRestController {
     }
     
     //CREAR 
-    @PostMapping("/create")
-    public ResponseEntity<Dispositivo> crearDispositivo(@RequestBody Dispositivo dispositivo){
+    @PostMapping("/create/{id}")
+    public ResponseEntity<Dispositivo> crearDispositivo(@PathVariable("id") Long id, @RequestBody Dispositivo dispositivo){
+    	List<Usuario> usuarios = usuarioService.findAll();
+    	dispositivo.setListaUsuarios(usuarios);
+    	System.out.println(dispositivo.getListaUsuarios());
     	Dispositivo dispositivoAdd = dispositivoService.add(dispositivo);
     	return new ResponseEntity(dispositivo, HttpStatus.CREATED);
     }

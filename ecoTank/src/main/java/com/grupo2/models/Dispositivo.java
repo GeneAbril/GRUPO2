@@ -18,6 +18,9 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 @Entity
 @Table(name="dispositivos")
 public class Dispositivo {
@@ -26,6 +29,7 @@ public class Dispositivo {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nombre;
+    private String arduino;
 private Boolean temperatura;
 private Boolean humedad;
 
@@ -37,6 +41,7 @@ private Date updatedAt;
 //Many To Many a usuarios
 @ManyToMany(fetch=FetchType.EAGER)
 //creacion de tabla relacional
+@JsonIgnoreProperties("listaDispositivos")
 @JoinTable(name= "dispositivos_usuarios",
 joinColumns = @JoinColumn(name="dispositivo_id"),//creacion de columnas
 inverseJoinColumns= @JoinColumn(name="usuario_id")
@@ -53,14 +58,15 @@ private List<Planta> listaPlantas;
 @OneToMany(mappedBy ="dispositivo",cascade=CascadeType.ALL ,fetch=FetchType.LAZY)
 private List<Medicion> listaMediciones;
 
-//constructor vacio
+	//constructor vacio
     public Dispositivo() {
     }
 
 //constructor con parametros
-    public Dispositivo(Long id, String nombre, Boolean temperatura, Boolean humedad, List<Usuario> listaUsuarios) {
+    public Dispositivo(Long id, String nombre, String arduino, Boolean temperatura, Boolean humedad, List<Usuario> listaUsuarios) {
         this.id = id;
     	this.nombre = nombre;
+    	this.arduino = arduino;
         this.temperatura = temperatura;
         this.humedad = humedad;
         this.listaUsuarios = listaUsuarios;
@@ -81,6 +87,14 @@ private List<Medicion> listaMediciones;
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+    
+    public String getArduino() {
+        return arduino;
+    }
+
+    public void setArduino(String arduino) {
+        this.arduino = arduino;
     }
 
     public Boolean getTemperatura() {
@@ -106,6 +120,16 @@ private List<Medicion> listaMediciones;
     public void setListaUsuarios(List<Usuario> listaUsuarios) {
         this.listaUsuarios = listaUsuarios;
     } 
+    
+
+	public List<Medicion> getListaMediciones() {
+		return listaMediciones;
+	}
+	
+	public void setListaMediciones(List<Medicion> listaMediciones) {
+		this.listaMediciones = listaMediciones;
+	}
+
     @PrePersist
     protected void onCreate(){
         this.createdAt = new Date();
