@@ -3,6 +3,9 @@ package com.grupo2.api;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.lang.Nullable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -12,6 +15,8 @@ import com.grupo2.services.PlantaService;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 @RestController
 @RequestMapping("/api/plantas")
@@ -34,6 +39,13 @@ public class PlantaRestController {
         public Planta mostrarPlanta(@PathVariable("id") Long id) {
             return plantaService.mostrarPlanta(id);
         }
+
+@PostMapping("")
+public ResponseEntity<Planta> savePlanta( @RequestBody Planta planta){
+	Planta savePlanta = plantaService.SavePlanta(planta);
+return new ResponseEntity <Planta> (savePlanta, HttpStatus.CREATED);
+}
+
 
     }
 

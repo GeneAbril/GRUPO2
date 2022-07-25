@@ -1,10 +1,8 @@
 package com.grupo2.services;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.grupo2.models.Planta;
 import com.grupo2.repositories.PlantaRepository;
 
@@ -22,4 +20,10 @@ public class PlantaService{
         return plantaRepository.findById(id).get();
     }
 
+    public Planta SavePlanta(Planta planta){
+        return plantaRepository.save(planta);
+    }
+    public void deletePlanta(Long id) {
+		plantaRepository.deleteById(id);
+	}
 }
