@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.grupo2.models.Comentario;
 import com.grupo2.services.ComentarioService;
+import com.grupo2.services.PlantaService;
 
 
 @RestController
@@ -41,7 +42,7 @@ public class ComentarioRestController {
         return comentarioService.findOne(id);
     }
     
-    //CREAR 
+    /**CREAR 
     @PostMapping("/create/{id}")
     public ResponseEntity<Comentario> crearComentario(@PathVariable("id") Long id, @RequestBody Comentario comentario){
     	List<Comentario> comentarios = comentarioService.findAll();
@@ -50,7 +51,7 @@ public class ComentarioRestController {
     	Comentario comentarioAdd = comentarioService.add(comentario);
     	return new ResponseEntity<Comentario>(comentario, HttpStatus.CREATED);
     }
-    
+    */
     //ELIMINAR DISPOSITVO
     @RequestMapping("/delete/{id}")
     public ResponseEntity<Comentario> eliminarComentario(@PathVariable("id") Long id){

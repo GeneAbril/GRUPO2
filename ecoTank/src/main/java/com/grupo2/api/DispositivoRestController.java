@@ -1,6 +1,7 @@
 package com.grupo2.api;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,10 +33,11 @@ public class DispositivoRestController {
     UsuarioService usuarioService;
 
     // Metodo que devuelva una lista de dispositivos
-    @RequestMapping("/lista")
-    public List<Dispositivo> mostrarListaDispositivos(){
-
-        return dispositivoService.findAll();
+    @RequestMapping("/lista/{id}")
+    public List<Dispositivo> mostrarListaDispositivos(@PathVariable Long id){
+    	Usuario usuario = usuarioService.getOneUser(id);
+    	System.out.println(usuario.getNombre());
+        return usuario.getListaDispositivos();
     }
 
     // Metodo que devuelva un dispositivo unico por id
@@ -47,11 +49,12 @@ public class DispositivoRestController {
     //CREAR 
     @PostMapping("/create/{id}")
     public ResponseEntity<Dispositivo> crearDispositivo(@PathVariable("id") Long id, @RequestBody Dispositivo dispositivo){
-    	List<Usuario> usuarios = usuarioService.findAll();
-    	dispositivo.setListaUsuarios(usuarios);
-    	System.out.println(dispositivo.getListaUsuarios());
+    	Usuario usuario = usuarioService.getOneUser(id);
+    	List<Usuario> listaUsuarios = new ArrayList<>();
+    	listaUsuarios.add(usuario);
+    	dispositivo.setListaUsuarios(listaUsuarios);
     	Dispositivo dispositivoAdd = dispositivoService.add(dispositivo);
-    	return new ResponseEntity(dispositivo, HttpStatus.CREATED);
+    	return new ResponseEntity<Dispositivo>(dispositivoAdd, HttpStatus.CREATED);
     }
     
     //ELIMINAR DISPOSITVO

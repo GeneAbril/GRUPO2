@@ -38,7 +38,7 @@ public class Usuario {
 	@Transient
 	private String claveConfirmacion;
 
-	@ManyToMany(fetch = FetchType.EAGER)
+	@ManyToMany(fetch = FetchType.LAZY)
 	@JsonIgnoreProperties("listaUsuarios")
 	@JoinTable(
 		name = "dispositivos_usuarios",

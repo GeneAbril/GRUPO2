@@ -39,7 +39,7 @@ private Date updatedAt;
 	private Dispositivo dispositivo;
 
 //One To Many de plantas a comentarios
-@OneToMany(mappedBy ="comentario",cascade=CascadeType.ALL ,fetch=FetchType.LAZY)
+@OneToMany(mappedBy ="planta",cascade=CascadeType.ALL ,fetch=FetchType.LAZY)
 private List<Comentario> listaComentarios;
 
 //constructor vacio
@@ -78,6 +78,16 @@ public Dispositivo getDispositivo() {
 public void setDispositivo(Dispositivo dispositivo) {
     this.dispositivo = dispositivo;
 }
+
+
+public List<Comentario> getListaComentarios() {
+	return listaComentarios;
+}
+
+public void setListaComentarios(List<Comentario> listaComentarios) {
+	this.listaComentarios = listaComentarios;
+}
+
 
 @PrePersist
 protected void onCreate(){

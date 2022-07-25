@@ -1,14 +1,17 @@
 package com.grupo2.services;
 
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.grupo2.models.Comentario;
+import com.grupo2.models.Dispositivo;
 import com.grupo2.repositories.ComentarioRepository;
 
 
 @Service
-public class ComentarioServices{
+public class ComentarioService{
 
     @Autowired
     ComentarioRepository comentarioRepository;
@@ -25,7 +28,8 @@ public class ComentarioServices{
 
 	public Comentario add(Dispositivo dispositivo) {
 		// TODO Auto-generated method stub
-		return comentarioRepository.save(dispositivo);
+		//return comentarioRepository.save(dispositivo);
+		return null;
 	}
 
 	public void delete(Long id) {
