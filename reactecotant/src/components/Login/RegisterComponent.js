@@ -26,7 +26,7 @@ const RegisterComponent = () => {
 
   const crearUsuario = async () => {
   try {
-      const response = await axios.post('http://3.19.188.80/api/usuarios/registrar', value)
+      const response = await axios.post('http://localhost:8080/api/usuarios/registrar', value)
       return response.data;
     } catch (error) {
       return 'error';

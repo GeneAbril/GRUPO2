@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import { getSession } from '../../persistencia/dataUsuario';
 import { getAll, eliminarDispositivo, saveDispositivo } from '../../services/DispositivoService';
 import CardDispositivoComponent from "./CardDispositivoComponent"
 import ModalDispositivoComponent from './ModalDispositivoComponent';
@@ -46,8 +47,11 @@ const DispositivoComponent = () => {
         setDispositivos(await getAll())
     }
 
+    const userActual = getSession();
+    console.log('userActual', userActual)
+
     const dispositivoAdd = async (dispositivo) => {
-        await saveDispositivo(dispositivo)
+        await saveDispositivo(dispositivo, userActual.id)
         setDispositivos(await getAll())
     }
 

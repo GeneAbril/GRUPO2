@@ -8,11 +8,11 @@ const initialValue = {
     arduino: ''
 }
 
-const ModalDispositivoComponent = ({ dispositivoAdd, dispositivoEditado, dispositivoEdit, setDispositivoEditado }) => {
+const ModalDispositivoComponent = ({ dispositivoAdd }) => {
 
     const [values, setValues] = useState(initialValue);
 
-    const { nombre, temperatura, humedad, arduino } = values;
+    const { nombre, arduino } = values;
 
     const listUsers = {
         ...getSession()

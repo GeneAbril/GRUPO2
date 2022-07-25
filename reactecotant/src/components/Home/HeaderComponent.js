@@ -13,17 +13,16 @@ const HeaderComponent = ({ setStateSession, stateSession }) => {
     const navigate = useNavigate();
 
     return (
-        <nav className="navbar navbar-light bg-dark p-2 ">
-            <div className="container row ">
+        <nav className="navbar navbar-light bg-dark p-2">
                 <div className="col-1"></div>
-                <div className="col">
+                <div className="col-2">
                     <Link class="pt-1" to="/">
                         <img src={LogoEcoTank} alt="" width="50" height="50" className="d-inline-block align-top" />
                         <h1 className="ms-3 d-inline-block text-white">EcoTank</h1>
                     </Link>
                 </div>
 
-                <div className="col-5">
+                <div className="col">
                     {
                         stateSession != null ?
                             [
@@ -40,7 +39,7 @@ const HeaderComponent = ({ setStateSession, stateSession }) => {
                 }
                 </div>
 
-                <div className="col">
+                <div className="col-2">
                     {
                         stateSession != null ?
                             <div className="d-flex">
@@ -59,7 +58,6 @@ const HeaderComponent = ({ setStateSession, stateSession }) => {
                     }
 
                 </div>
-            </div>
         </nav>
     )
 };
