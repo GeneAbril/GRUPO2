@@ -54,8 +54,8 @@ const AgregarComentarioComponent = ({comentarioEditado}) => {
                         name='comentario' 
                         value={comentarioEditado} 
                         onChange={handleInputChange}/>
-            <button type="button" className="btn btn-outline-warning m-2" >Warning</button>
-            <button type="button" className="btn btn-outline-success m-2">Success</button>
+            <button type="button" className="btn btn-outline-warning m-2" >Agregar</button>
+            <button type="button" className="btn btn-outline-success m-2">Limpiar</button>
         </div>
     </form>
 

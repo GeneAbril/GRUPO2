@@ -93,9 +93,9 @@ const ComentarioComponent = () => {
 
 
     return(
-        <div className="container my-5 ">
+        <div className="container my-5 px-5" style={{backgroundColor: 'red'}}>
             <div >
-                <h1>Destalles Planta:</h1>
+                <h1>Detalles Planta:</h1>
                 <hr></hr>
             </div>
                 <div className='row m-0  p-2 fijarPlanta'>
@@ -106,9 +106,9 @@ const ComentarioComponent = () => {
                 <div className='row mt-3 border'>
                     <AgregarComentarioComponent comentarioEditado = {comentarioEditado}/>
                 </div>
-                <div className = 'row fijar border border-2 rounded bg-light p-1 mt-3 mb-3' >
+                <div className = 'row fijar border border-2 rounded bg-light' >
                     
-                    <div className="row ">
+                    <div className="row mb-5" >
                     
                         {
                         comentarios.map(carta => 

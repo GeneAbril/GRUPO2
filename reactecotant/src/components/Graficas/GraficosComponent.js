@@ -9,7 +9,7 @@ const GraficosComponent = () => {
   const [callFetch, setCallFetch] = useState(null)
   const [filtro, setFiltro] = useState([])
 
-  const baseUrl = "http://3.19.188.80/api/mediciones/lista";
+  const baseUrl = "http://18.224.1.156/api/mediciones/lista";
   const fetchData = async () => {
     const response = await axios.get(baseUrl)
     const normalizarArray = await response.data.map(x => x)

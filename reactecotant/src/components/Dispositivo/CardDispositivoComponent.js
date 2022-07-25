@@ -3,6 +3,7 @@ import planta from "../../assets/img/arduino1.png"
 import ListaPlantaComponent from "./ListaPlantaComponent";
 import { Link } from "react-router-dom";
 import { getLastMediciones } from "../../services/MedicionService";
+import ModalPlantaComponent from "./ModalPlantaComponent";
 
 
 const CardDispositivoComponent = ({ dispositivo, tarjetaDelete, setDispositivoEditado }) => {
@@ -19,7 +20,7 @@ const CardDispositivoComponent = ({ dispositivo, tarjetaDelete, setDispositivoEd
 
 
 
-    const plantas = new Array(5).fill('')
+    const plantas = new Array(4).fill('')
 
 
     return (
@@ -48,19 +49,22 @@ const CardDispositivoComponent = ({ dispositivo, tarjetaDelete, setDispositivoEd
                     </div>
 
                     <div className="col d-flex align-items-center">
-                        <tr>
+                        <div>
                             {
-                                plantas.map((x) =>
-
-                                    <ListaPlantaComponent />
-
-                                )
+                                plantas.map((x, i) => <ListaPlantaComponent key={i}/>)
                             }
-                        </tr>
 
 
+                            <div className='d-flex justify-content-between'>
+                                <div className='mt-3'>
+                                    <button type="button" className="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalPlanta" data-bs-whatever="@mdo">Agregar planta</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-
+                    {
+                        <ModalPlantaComponent />
+                    }
                     <div className="col-1">
                         <button type="button" className="btn-close bg-light" aria-label="Close">
                         </button>

@@ -12,11 +12,11 @@ const TarjetaPlantaComponents = ({ planta }) => {
             <h3 className="m-1 p-1">{planta}</h3>
                 <div className="w-50 py-0 ">
                     <div className="square rounded-pill">
-                        <div className="imgPlanta"></div>
+                        <div className="imgPlanta "></div>
                     </div>
                 </div>
             </div>
-            <div className="col  p-25">
+            <div id="ficha" className="col  p-25">
                 <ul>
                     <li><h4>Nombre plata:</h4> </li>
                     <li><h4>Fecha plantacion:</h4></li>

@@ -36,6 +36,7 @@ const LoginComponent = ({ setStateSession }) => {
 
     try {
       const response = await axios.post('http://localhost:8080/api/usuarios/ingresar', value)
+      // const response = await axios.post('http://18.224.1.156/api/usuarios/ingresar', value)
       setSession(await response.data);
       await setStateSession(getSession())
       return response.data

@@ -2,6 +2,7 @@ import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { getSession } from '../../persistencia/dataUsuario';
 import { getAll, eliminarDispositivo, saveDispositivo } from '../../services/DispositivoService';
+import { savePlanta } from '../../services/PlantaService';
 import CardDispositivoComponent from "./CardDispositivoComponent"
 import ModalDispositivoComponent from './ModalDispositivoComponent';
 
@@ -26,9 +27,12 @@ const DispositivoComponent = () => {
     const [dispositivoEditado, setDispositivoEditado] = useState(null);
 
 
+    const userActual = getSession();
+    console.log('userActual', userActual)
+
     //Funcion para obtener dispositivos
     const obtenerDispisitivos = async () => {
-        setDispositivos(await getAll())
+        setDispositivos(await getAll(userActual.id))
     }
 
     //Cuando se recarga la pagina va a hacer una vez lo que hay dentro, en este caso hacer la funcion Obtener dispositivo
@@ -44,15 +48,19 @@ const DispositivoComponent = () => {
     const tarjetaDelete = async (dispositivoId) => {
         //espera que traiga la respuesta y actualiza lista de dispositivos
         await eliminarDispositivo(dispositivoId)
-        setDispositivos(await getAll())
+        setDispositivos(await getAll(userActual.id))
     }
 
-    const userActual = getSession();
-    console.log('userActual', userActual)
 
     const dispositivoAdd = async (dispositivo) => {
         await saveDispositivo(dispositivo, userActual.id)
         setDispositivos(await getAll())
+    }
+
+    //PlantaAdd
+    const plantaAdd = async (planta) => {
+        await savePlanta(planta, userActual.id)
+        // setPlanta(await getAll())
     }
 
     const dispositivoEdit = (dispositivoEditado) => {
@@ -65,7 +73,7 @@ const DispositivoComponent = () => {
 
 
     return (
-        <div className='container' style={{height:'120vh'}}>
+        <div className='container my-3' style={{ height: '120vh' }}>
             <div className='d-flex justify-content-between'>
                 <h1>Dispositivos</h1>
                 <div className='mt-3'>
@@ -75,6 +83,9 @@ const DispositivoComponent = () => {
             <ModalDispositivoComponent
                 dispositivoAdd={dispositivoAdd}
             />
+            <hr />
+
+           
             <hr />
             <div className='d-flex justify-content-between flex-wrap'>
                 {// recorre el array y crea una tarjeta por cada elemento dentro de este y le entregará el contendido del objeto

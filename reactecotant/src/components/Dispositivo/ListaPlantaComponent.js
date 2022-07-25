@@ -1,7 +1,8 @@
 import axios from 'axios';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-const ListaPlantaComponent=() =>{
+const ListaPlantaComponent = () => {
 
     const url = '';
 
@@ -12,9 +13,12 @@ const ListaPlantaComponent=() =>{
     }
 
     return (
-    <>
-    <div className="btn btn-outline-success m-1"> <i class="fa-solid fa-seedling"></i> Planta</div>
-    </>)
+        <>
+            <Link to="/comentarios">
+                <div className="btn btn-outline-success m-1"> <i class="fa-solid fa-seedling"></i> Planta</div>
+            </Link>
+        </>
+        )
 }
 
 export default ListaPlantaComponent;
