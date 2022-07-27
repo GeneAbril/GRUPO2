@@ -1,15 +1,15 @@
 import axios from "axios";
 
 
-// const baseUrl = "http://localhost:8080/api/dispositivos"
-const baseUrl = "http://18.224.1.156/api/plantas"
+const baseUrl = "http://localhost:8080/api/plantas"
+// const baseUrl = "http://18.224.1.156/api/plantas"
 
 //Esta funcion va a funcionar y correr mientras hacemos otras cosas
-const getAll = async() =>{
+const getAllPlantas = async(id_dispositivo) =>{
     const res = await axios.get(baseUrl + "/lista")
-    //await axios.get(localhost:9080/api/dispositivos/lista)
-    console.log(res.data);
-    return res.data;
+    const resDispositivo = res.data.filter(x => x.dispositivo.id === id_dispositivo );
+    console.log(resDispositivo)
+    return resDispositivo;
 }
 //Funcion para eliminar un planta por id
 const eliminarPlanta = async(id) =>{ //asincrona por que tenemos que esperar que nos de una respuesta
@@ -22,10 +22,10 @@ const eliminarPlanta = async(id) =>{ //asincrona por que tenemos que esperar que
     return res.data;
 }
 
-const savePlanta = async(planta, id)=>{
-    const res = await axios.post(baseUrl+ "/create/" + id, planta);
+const savePlanta = async(planta, id_dispositivo)=>{
+    const res = await axios.post(baseUrl+ "/create/" + id_dispositivo, planta);
     return res.data;
 
 }
 
-export {savePlanta, eliminarPlanta,getAll}
+export {savePlanta, eliminarPlanta,getAllPlantas}

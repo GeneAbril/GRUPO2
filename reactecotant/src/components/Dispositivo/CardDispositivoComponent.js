@@ -1,14 +1,19 @@
 import React, { useEffect, useState } from "react";
-import planta from "../../assets/img/arduino1.png"
 import ListaPlantaComponent from "./ListaPlantaComponent";
 import { Link } from "react-router-dom";
 import { getLastMediciones } from "../../services/MedicionService";
 import ModalPlantaComponent from "./ModalPlantaComponent";
+import { getAllPlantas, savePlanta } from "../../services/PlantaService";
 
 
-const CardDispositivoComponent = ({ dispositivo, tarjetaDelete, setDispositivoEditado }) => {
-
+const CardDispositivoComponent = ({ dispositivo, tarjetaDelete }) => {
+    console.log('DISPOSITIVO ID:', dispositivo.id)
     const [mediciones, setMediciones] = useState({})
+    const [plantas, setPlantas] = useState(null)
+    
+    const obtenerPlantas = async () => {
+        setPlantas(await getAllPlantas(dispositivo.id))
+    }
 
     const obtenerMediciones = async () => {
         setMediciones(await getLastMediciones())
@@ -16,11 +21,16 @@ const CardDispositivoComponent = ({ dispositivo, tarjetaDelete, setDispositivoEd
 
     useEffect(() => {
         obtenerMediciones()
+        obtenerPlantas()
     }, [])
 
+    //PlantaAdd
+    const plantaAdd = async (planta) => {
+        await savePlanta(planta, dispositivo.id)
+        setPlantas(await getAllPlantas(dispositivo.id))
+    }
 
-
-    const plantas = new Array(4).fill('')
+    // const plantas = new Array(4).fill('')
 
 
     return (
@@ -34,7 +44,7 @@ const CardDispositivoComponent = ({ dispositivo, tarjetaDelete, setDispositivoEd
                             <div className="d-flex">
 
                                 {/* <i class="fa-solid fa-house mt-2 me-2" ></i> */}
-                                <h3>{dispositivo.nombre}{dispositivo.id}</h3>
+                                <h3>{dispositivo.id} {dispositivo.nombre}</h3>
 
                             </div>
                             <div className="d-flex gap-1">
@@ -51,22 +61,23 @@ const CardDispositivoComponent = ({ dispositivo, tarjetaDelete, setDispositivoEd
                     <div className="col d-flex align-items-center">
                         <div>
                             {
+                                plantas &&
                                 plantas.map((x, i) => <ListaPlantaComponent key={i}/>)
                             }
 
 
                             <div className='d-flex justify-content-between'>
                                 <div className='mt-3'>
-                                    <button type="button" className="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#modalPlanta" data-bs-whatever="@mdo">Agregar planta</button>
+                                    <button type="button" className="btn btn-outline-success" data-bs-toggle="modal" data-bs-target={"#modalPlanta" + dispositivo.id} data-bs-whatever="@mdo">Agregar planta</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                     {
-                        <ModalPlantaComponent />
+                        <ModalPlantaComponent plantaAdd={plantaAdd} dispositivoId={dispositivo.id}/>
                     }
                     <div className="col-1">
-                        <button type="button" className="btn-close bg-light" aria-label="Close">
+                        <button type="button" className="btn-close bg-light" onClick={() => tarjetaDelete(dispositivo.id)} aria-label="Close">
                         </button>
                     </div>
 

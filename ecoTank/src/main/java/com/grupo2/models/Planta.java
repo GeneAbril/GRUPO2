@@ -3,7 +3,6 @@ package com.grupo2.models;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.JoinColumn;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -11,11 +10,14 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @Table(name="plantas")
@@ -35,6 +37,7 @@ private Date updatedAt;
 
 //Many To One a Dispositivo
 @ManyToOne(fetch=FetchType.LAZY)
+@JsonIgnoreProperties(value = {"hibernateLazyInitializer","handler"})
 	@JoinColumn(name="dispositivo_id")
 	private Dispositivo dispositivo;
 

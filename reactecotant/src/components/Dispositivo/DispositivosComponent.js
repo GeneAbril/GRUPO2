@@ -1,30 +1,14 @@
-import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import { getSession } from '../../persistencia/dataUsuario';
 import { getAll, eliminarDispositivo, saveDispositivo } from '../../services/DispositivoService';
-import { savePlanta } from '../../services/PlantaService';
 import CardDispositivoComponent from "./CardDispositivoComponent"
 import ModalDispositivoComponent from './ModalDispositivoComponent';
 
-//array con 2 objetos
-const initialValue = [{
-    id: 1,
-    nombre: 'test1',
-    temperatura: false,
-    humedad: true,
-    fecha: ''
-}, {
-    id: 2,
-    nombre: 'test2',
-    temperatura: true,
-    humedad: false,
-    fecha: ''
-}]
+
 
 const DispositivoComponent = () => {
 
     const [dispositivos, setDispositivos] = useState(null);
-    const [dispositivoEditado, setDispositivoEditado] = useState(null);
 
 
     const userActual = getSession();
@@ -54,22 +38,8 @@ const DispositivoComponent = () => {
 
     const dispositivoAdd = async (dispositivo) => {
         await saveDispositivo(dispositivo, userActual.id)
-        setDispositivos(await getAll())
+        setDispositivos(await getAll(userActual.id))
     }
-
-    //PlantaAdd
-    const plantaAdd = async (planta) => {
-        await savePlanta(planta, userActual.id)
-        // setPlanta(await getAll())
-    }
-
-    const dispositivoEdit = (dispositivoEditado) => {
-        const changeDispositivos = dispositivos.map(dispositivo => (dispositivo.key === dispositivoEditado.key ? dispositivoEditado : dispositivo))
-        setDispositivos(changeDispositivos)
-    }
-
-
-
 
 
     return (
@@ -83,7 +53,6 @@ const DispositivoComponent = () => {
             <ModalDispositivoComponent
                 dispositivoAdd={dispositivoAdd}
             />
-            <hr />
 
            
             <hr />
@@ -95,12 +64,10 @@ const DispositivoComponent = () => {
                             key={index}
                             dispositivo={dispositivo}
                             dispositivoAdd={dispositivoAdd}
-                            dispositivoEdit={dispositivoEdit}
                             tarjetaDelete={tarjetaDelete}
-                            setDispositivoEditado={setDispositivoEditado}
                         />)
                         :
-                        <div className='d-flex justify-content-center my-auto'>
+                        <div className='d-flex justify-content-center mx-auto'>
                             <div className="spinner-border" role="status">
                                 <span className="sr-only">Loading...</span>
                             </div>

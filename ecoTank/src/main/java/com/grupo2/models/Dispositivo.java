@@ -18,7 +18,7 @@ import javax.persistence.PrePersist;
 import javax.persistence.PreUpdate;
 import javax.persistence.Table;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
@@ -52,6 +52,7 @@ private List <Usuario> listaUsuarios;
 
 //One To Many de dispositivo a Planta
 @OneToMany(mappedBy ="dispositivo",cascade=CascadeType.ALL ,fetch=FetchType.LAZY)
+@JsonIgnore
 private List<Planta> listaPlantas;
 
 //One To Many de dispositivo a mediciones
@@ -129,6 +130,15 @@ private List<Medicion> listaMediciones;
 	public void setListaMediciones(List<Medicion> listaMediciones) {
 		this.listaMediciones = listaMediciones;
 	}
+	
+	public List<Planta> getListaPlantas() {
+		return listaPlantas;
+	}
+
+	public void setListaPlantas(List<Planta> listaPlantas) {
+		this.listaPlantas = listaPlantas;
+	}
+
 
     @PrePersist
     protected void onCreate(){

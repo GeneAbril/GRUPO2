@@ -6,7 +6,7 @@ const initialValue = {
     fecha: ''
 }
 
-const ModalPlantaComponent = ({ plantaAdd }) => {
+const ModalPlantaComponent = ({ plantaAdd, dispositivoId }) => {
 
     const [values, setValues] = useState(initialValue);
 
@@ -31,12 +31,11 @@ const ModalPlantaComponent = ({ plantaAdd }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         plantaAdd(values)
-        console.log('enter')
     }
 
 
     return (
-        <div className="modal fade" id="modalPlanta" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className="modal fade" id={"modalPlanta" + dispositivoId} tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog">
             <div className="modal-content">
                 <div className="modal-header bg-success">
