@@ -1,0 +1,24 @@
+#nosotros{
+   text-align: center;
+    }
+
+
+.perfil{
+    width: 220px;
+    height: 230px;
+    border-radius: 50%;
+    box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+}
+
+.perfil:hover {
+    width: 300px;
+    height: 300px;
+}
+
+.fa-linkedin{
+    font-size: 40px;
+}
+
+a{
+    text-decoration: none;
+}
