@@ -37,14 +37,7 @@ const options = {
     //Para ver el punto de inicio del eje Y
     scales: {
 
-        y: {
-            min: 0,
-            max: 100
-        },
-        x: {
-            min: 0,
-            max: 200
-        },
+
 
 
     },
