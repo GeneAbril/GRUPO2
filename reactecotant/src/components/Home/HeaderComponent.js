@@ -34,7 +34,8 @@ const HeaderComponent = ({ setStateSession, stateSession }) => {
                             ]
                             :
                             [<Link className="btn text-decoration-none text-white me-3 nav-hover" to="/">Home</Link>,
-                            <Link className="btn text-decoration-none text-white me-3 nav-hover" to="/precios">Precios</Link>]
+                            <Link className="btn text-decoration-none text-white me-3 nav-hover" to="/precios">Precios</Link>,
+                            <Link className="btn text-decoration-none text-white me-3 nav-hover" to="/nosotros">Nosotros</Link>]
 
                 }
                 </div>

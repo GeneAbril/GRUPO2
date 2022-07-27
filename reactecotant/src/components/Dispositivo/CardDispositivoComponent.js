@@ -1,23 +1,25 @@
 import React, { useEffect, useState } from "react";
 import ListaPlantaComponent from "./ListaPlantaComponent";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { getLastMediciones } from "../../services/MedicionService";
 import ModalPlantaComponent from "./ModalPlantaComponent";
 import { getAllPlantas, savePlanta } from "../../services/PlantaService";
 
 
 const CardDispositivoComponent = ({ dispositivo, tarjetaDelete }) => {
-    console.log('DISPOSITIVO ID:', dispositivo.id)
     const [mediciones, setMediciones] = useState({})
     const [plantas, setPlantas] = useState(null)
+
+    const navigate = useNavigate();
     
     const obtenerPlantas = async () => {
         setPlantas(await getAllPlantas(dispositivo.id))
     }
 
     const obtenerMediciones = async () => {
-        setMediciones(await getLastMediciones())
+        setMediciones(await getLastMediciones(dispositivo.arduino))
     }
+
 
     useEffect(() => {
         obtenerMediciones()
@@ -44,7 +46,7 @@ const CardDispositivoComponent = ({ dispositivo, tarjetaDelete }) => {
                             <div className="d-flex">
 
                                 {/* <i class="fa-solid fa-house mt-2 me-2" ></i> */}
-                                <h3>{dispositivo.id} {dispositivo.nombre}</h3>
+                                <h3>{dispositivo.nombre}</h3>
 
                             </div>
                             <div className="d-flex gap-1">
@@ -52,7 +54,7 @@ const CardDispositivoComponent = ({ dispositivo, tarjetaDelete }) => {
                                 <p className="btn btn-primary">{mediciones.humedad}%</p>
                             </div>
                             <div>
-                                <Link class="btn btn-outline-primary w-100" to={"/graficos"} role="button">Graficos <i class="fa-solid fa-chart-line"></i></Link>
+                                <div class="btn btn-outline-primary w-100" onClick={() => navigate('/graficos', {state: {uniqueId: dispositivo.arduino}})} role="button">Graficos <i class="fa-solid fa-chart-line"></i></div>
                                 {/* <Link class="btn btn-outline-primary" to={"/graficos"} role="button">Ver Graficos</Link> */}
                             </div>
                         </div>
@@ -62,7 +64,7 @@ const CardDispositivoComponent = ({ dispositivo, tarjetaDelete }) => {
                         <div>
                             {
                                 plantas &&
-                                plantas.map((x, i) => <ListaPlantaComponent key={i}/>)
+                                plantas.map((x, i) => <ListaPlantaComponent key={i} planta={x}/>)
                             }
 
 

@@ -52,7 +52,7 @@ const ModalPlantaComponent = ({ plantaAdd, dispositivoId }) => {
                             
                         </div>
                         <div className="modal-footer">
-                            <input type="submit" className="btn btn-succes" data-bs-dismiss="modal" value="Crear Planta" />
+                            <input type="submit" className="btn btn-success" data-bs-dismiss="modal" value="Crear Planta" />
                             <button type="button" className="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
                         </div>
                     </form>

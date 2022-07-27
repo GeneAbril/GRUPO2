@@ -55,8 +55,8 @@ const ModalDispositivoComponent = ({ dispositivoAdd }) => {
                                 
                             </div>
                             <div className="modal-footer">
-                                <input type="submit" className="btn btn-dark" data-bs-dismiss="modal" value="Crear Dispositivo" />
-                                <button type="button" className="btn btn-dark" data-bs-dismiss="modal">Cerrar</button>
+                                <input type="submit" className="btn btn-success" data-bs-dismiss="modal" value="Crear Dispositivo" />
+                                <button type="button" className="btn btn-danger" data-bs-dismiss="modal">Cerrar</button>
                             </div>
                         </form>
 

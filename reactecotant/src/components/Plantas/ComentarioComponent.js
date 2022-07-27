@@ -3,7 +3,7 @@ import AgregarComentarioComponent from "./AgregarComentarioComponent";
 import TarjetaComentario from "./TarjetaComentario";
 import TarjetaPlantaComponents from "./TarjetaPlantaComponents";
 import '../../styleComentario.css';
-
+import { Link, useNavigate } from "react-router-dom";
 
 const initialComentarios = [
         {
@@ -93,11 +93,14 @@ const ComentarioComponent = () => {
 
 
     return(
-        <div className="container my-5 px-5" style={{backgroundColor: 'red'}}>
-            <div >
+        <div className='container'>
+            <div className='d-flex justify-content-between'>
                 <h1>Detalles Planta:</h1>
-                <hr></hr>
+                <div className='mt-3'>
+                    <Link class="btn btn-outline-warning" to="/dispositivos" role="button">Volver</Link>
+                </div>
             </div>
+                <hr/>
                 <div className='row m-0  p-2 fijarPlanta'>
                     <TarjetaPlantaComponents planta= {planta}/>
                 </div>

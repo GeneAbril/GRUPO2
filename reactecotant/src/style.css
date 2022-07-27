@@ -5,14 +5,14 @@ html{
 
 #root{
     display: grid;
-   min-height: 100vh;
-   grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto;
 }
 
 body{ 
-   display: grid;
-   min-height: 100vh;
-   grid-template-rows: auto 1fr auto;
+    display: grid;
+    min-height: 100vh;
+    grid-template-rows: auto 1fr auto;
 }
 
 footer{
@@ -76,4 +76,9 @@ footer{
 }
 .nav-hover:hover {
     background-color: rgba(0, 0, 0, .5);
+}
+
+.precios{
+    border: 3px;
+    border-color: black;
 }

@@ -31,7 +31,7 @@ const items = [
     caption: 'CONTACTANOS',
     text1:'Utilizaremos un microcontrolador NodeMCU el cual usa un modulo ESP8266 para conectarse a internet vía wifi, tambien necesitamos un sensor de temperatura y humedad DTH 11, el cual nos entregara los datos que necesitamos',
     text2:'Programaremos el NodeMCU con el IDE de Arduino e importaremos las librerias que necesitaremos. (Podras encontrar el codigo dentro de la carpeta Arduino). Una vez que tengamos el codigo que utilizaremos, sera momento de conectarlo a travez de una api con node.js. Esto nos permitira visualizar los datos realizando peticiones POST a nuestro servidor',
-    text3: 'Posteriormente conectaremos nuestra API a la base de datos donde se iran almacenando los datos recolectados, para luego mostrarlos a traves de una pagina web'
+    // text3: 'Posteriormente conectaremos nuestra API a la base de datos donde se iran almacenando los datos recolectados, para luego mostrarlos a traves de una pagina web'
   }
 ];
 

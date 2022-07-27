@@ -11,7 +11,7 @@ import LoginComponent from './components/Login/LoginComponent';
 import RegisterComponent from './components/Login/RegisterComponent';
 import { getSession } from './persistencia/dataUsuario';
 import PreciosComponent from './components/precios/PreciosComponent';
-
+import NosotrosComponent from './components/Home/NosotrosComponent';
 
 const App = () => {
   const [stateSession, setStateSession] = useState(null)
@@ -39,9 +39,7 @@ const App = () => {
           <Route path="/register" element={<RegisterComponent />} />
           <Route path="/dispositivos" element={<DispositivosComponent />}/>
           <Route path="/precios" element={<PreciosComponent />} />
-         
-
-         
+          <Route path="/nosotros" element={<NosotrosComponent/>}/>
         </Routes>
 
       </div>

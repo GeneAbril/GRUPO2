@@ -22,13 +22,7 @@ padding-bottom: 150px;
         height: 100px;
         margin-inline: auto;
 
-}.square {
-    width: 100%;
-    content: "";
-    padding-bottom: 50px;
-    background-color: rgb(225, 225, 225);
-    display: block;
-  }
+}
   
   .fijar{
     height:8%;

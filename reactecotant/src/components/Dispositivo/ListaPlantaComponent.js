@@ -2,7 +2,7 @@ import axios from 'axios';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const ListaPlantaComponent = () => {
+const ListaPlantaComponent = ({planta}) => {
 
     const url = '';
 
@@ -12,10 +12,11 @@ const ListaPlantaComponent = () => {
         return response.data
     }
 
+
     return (
         <>
             <Link to="/comentarios">
-                <div className="btn btn-outline-success m-1"> <i class="fa-solid fa-seedling"></i> Planta</div>
+                <div className="btn btn-outline-success m-1"> <i class="fa-solid fa-seedling">{planta.nombre}</i> </div>
             </Link>
         </>
         )

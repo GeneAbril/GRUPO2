@@ -3,30 +3,39 @@ import BarChartComponent from './BarChartComponent'
 import { TestComponent } from './TestComponent'
 import { LineChartComponent } from './LineChartComponent'
 import axios from 'axios'
+import { Link, useLocation } from 'react-router-dom';
 
+
+<a href=''><i class="fa fa asdasd"></i></a>
 
 const GraficosComponent = () => {
   const [callFetch, setCallFetch] = useState(null)
   const [filtro, setFiltro] = useState([])
 
+  const {state} = useLocation();
+  const {uniqueId = 'none'} = state;
+
   const baseUrl = "http://18.224.1.156/api/mediciones/lista";
   const fetchData = async () => {
     const response = await axios.get(baseUrl)
-    const normalizarArray = await response.data.map(x => x)
-    setCallFetch(response.data)
+    console.log(response)
+    const normalizarArray = await response.data.filter(x => x.uniqueId === (uniqueId))
+    setCallFetch(normalizarArray)
   }
 
   useEffect(() => {
 
     fetchData();
   }, [])
+
   return (
     <div>
       <div className='container'>
+        
         <div className='d-flex justify-content-between'>
-          <h1>Graficos</h1>
+          <h1>Graficos{uniqueId}</h1>
           <div className='mt-3'>
-            <button className='btn btn-outline-warning'>Volver</button>
+          <Link class="btn btn-outline-warning" to="/dispositivos" role="button">Volver</Link>
           </div>
         </div>
         <hr />
