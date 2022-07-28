@@ -95,9 +95,6 @@ export const LineChartComponent = ({callFetch, setCallFetch, filtro, setFiltro})
     useEffect(() => {
         if (callFetch) {
 
-
-
-
             console.log(callFetch);
             // const ejex = mediciones.map(medicion => [medicion.temperatura, medicion.humedad])
             // console.log(ejex);

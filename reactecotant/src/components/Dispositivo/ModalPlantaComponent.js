@@ -47,7 +47,7 @@ const ModalPlantaComponent = ({ plantaAdd, dispositivoId }) => {
                         <div className="">
                             <label htmlFor="recipient-name" className="col-form-label">Nombre de planta:</label>
                             <input type="text" onChange={handleChange} name="nombre" value={nombre} className="form-control" id="recipient-name" />
-                            <label htmlFor="recipient-name" className="col-form-label">Fecha:</label>
+                            <label htmlFor="recipient-name" className="col-form-label">Fecha de Plantacion:</label>
                             <input type="date" onChange={handleChange} name="fecha" value={fecha} className="form-control" id="recipient-name" />
                             
                         </div>

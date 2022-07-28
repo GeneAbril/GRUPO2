@@ -29,8 +29,8 @@ const HeaderComponent = ({ setStateSession, stateSession }) => {
                             // <Link className="btn text-decoration-none text-white me-3 nav-hover" to="/login">Login</Link>, 
                             // <Link className="btn text-decoration-none text-white me-3 nav-hover" to="/register">Register</Link>, 
                             <Link className="btn text-decoration-none text-white me-3 nav-hover" to="/dispositivos">Dispositivos</Link>, 
-                            <Link className="btn text-decoration-none text-white me-3 nav-hover" to="/graficos">Graficos</Link>, 
-                            <Link className="btn text-decoration-none text-white me-3 nav-hover" to="/comentarios">Comentarios</Link>
+                            // <Link className="btn text-decoration-none text-white me-3 nav-hover" to="/graficos">Graficos</Link>, 
+                            // <Link className="btn text-decoration-none text-white me-3 nav-hover" to="/comentarios">Comentarios</Link>
                             ]
                             :
                             [<Link className="btn text-decoration-none text-white me-3 nav-hover" to="/">Home</Link>,

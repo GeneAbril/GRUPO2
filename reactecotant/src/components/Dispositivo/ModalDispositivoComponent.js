@@ -50,7 +50,7 @@ const ModalDispositivoComponent = ({ dispositivoAdd }) => {
                             <div className="">
                                 <label htmlFor="recipient-name" className="col-form-label">Nombre de dispositivo:</label>
                                 <input type="text" onChange={handleChange} name="nombre" value={nombre} className="form-control" id="recipient-name" />
-                                <label htmlFor="recipient-name" className="col-form-label">Id Arduino:</label>
+                                <label htmlFor="recipient-name" className="col-form-label">Id Dispositivo:</label>
                                 <input type="text" onChange={handleChange} name="arduino" value={arduino} className="form-control" id="recipient-name" />
                                 
                             </div>

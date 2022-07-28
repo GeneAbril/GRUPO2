@@ -33,7 +33,7 @@ const GraficosComponent = () => {
       <div className='container'>
         
         <div className='d-flex justify-content-between'>
-          <h1>Graficos ID: {uniqueId}</h1>
+          <h1>Graficos</h1>
           <div className='mt-3'>
           <Link class="btn btn-outline-warning" to="/dispositivos" role="button">Volver</Link>
           </div>

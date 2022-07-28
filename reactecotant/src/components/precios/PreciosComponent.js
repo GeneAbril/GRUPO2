@@ -3,7 +3,7 @@ import "../../style.css";
 const PreciosComponent = () => {
   return (
     <div className="">
-      <div className="container m-4">
+      <div className="container-fluid m-4">
         <h1>Nuestros precios</h1>
         <hr />
       </div>

@@ -19,19 +19,16 @@ const items = [
   },
   {
     src: require('../../assets/img/planta.jpg'),
-    altText: 'Acerca de 2',
+    altText: 'Acerca de EcoTank',
     caption: 'SOBRE NOSOTROS',
-    text1:'Nuestro Producto Se enfoca en la ',
-    text2:'Programaremos el NodeMCU con el IDE de Arduino e importaremos las librerias que necesitaremos. (Podras encontrar el codigo dentro de la carpeta Arduino). Una vez que tengamos el codigo que utilizaremos, sera momento de conectarlo a travez de una api con node.js. Esto nos permitira visualizar los datos realizando peticiones POST a nuestro servidor',
-    text3: 'Posteriormente conectaremos nuestra API a la base de datos donde se iran almacenando los datos recolectados, para luego mostrarlos a traves de una pagina web'
+    text1:'Como bien saben la pandemia nos afectó a todos significativamente esto se vio reflejado en el gran aumento de huertos urbanos, no solamente es una buena manera de autoabastecerse, sino también una forma de terapia ,esto a nivel ambiental es muy beneficioso ,ante el aumento de t° que se produce por la gran cantidad de personas habitando un lugar, está comprobado que los huertos urbanos reducen las fluctuaciones de temperatura presentes en el agua y tierra de las plantas, además ayuda a mejorar la calidad del aire.',
+    text2:'Nosotros estamos a favor de aportar al cuidado del medio ambiente,Es por esto que les presentamos a este proyecto una plataforma que te ayuda a registrar valoresde humedad y temperatura del ambiente,te ofreceremos un historial de cuidados interactivo, datos en tiempo real,una agenda personal, pero por sobre todo tu tranquilidad y el bien estar de tu plantación.',
   },
   {
     src: require('../../assets/img/cal center.jpg'),
-    altText: 'Slide 3',
+    altText: 'Mas información',
     caption: 'CONTACTANOS',
-    text1:'Utilizaremos un microcontrolador NodeMCU el cual usa un modulo ESP8266 para conectarse a internet vía wifi, tambien necesitamos un sensor de temperatura y humedad DTH 11, el cual nos entregara los datos que necesitamos',
-    text2:'Programaremos el NodeMCU con el IDE de Arduino e importaremos las librerias que necesitaremos. (Podras encontrar el codigo dentro de la carpeta Arduino). Una vez que tengamos el codigo que utilizaremos, sera momento de conectarlo a travez de una api con node.js. Esto nos permitira visualizar los datos realizando peticiones POST a nuestro servidor',
-    // text3: 'Posteriormente conectaremos nuestra API a la base de datos donde se iran almacenando los datos recolectados, para luego mostrarlos a traves de una pagina web'
+    text1:'Para comunicarte con nosotros puedes hacerlo a través de los siguientes canales: 23:41600 6000 166 Desde el extranjero: +56 229153265 Horario de atención: de lunes a domingo de 8:30 a 22:30 hrs.',
   }
 ];
 
@@ -87,7 +84,7 @@ class Example extends Component {
             <CarouselCaption captionHeader={item.caption} />
             <div className='w-50 text-white bg-carrousel'>
               <div className='p-5'>
-                <h1 className='text-center'>{item.altText}</h1>
+                <h3 className='text-center'>{item.altText}</h3>
                 <br/>
                 <p>{item.text1}</p>
                 <p>{item.text2}</p>
