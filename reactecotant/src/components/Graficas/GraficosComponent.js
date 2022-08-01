@@ -15,7 +15,7 @@ const GraficosComponent = () => {
   const {state} = useLocation();
   const {uniqueId = 'none'} = state;
 
-  const baseUrl = "http://18.224.1.156/api/mediciones/lista";
+  const baseUrl = "http://3.143.231.179/api/mediciones/lista";
   const fetchData = async () => {
     const response = await axios.get(baseUrl)
     console.log(response)

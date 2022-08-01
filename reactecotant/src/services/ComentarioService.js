@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseUrl = "http://18.224.1.156/api/comentarios"
+const baseUrl = "http://3.143.231.179/api/comentarios"
 
 const getAllComents = async() =>{
     const res = await axios.get(baseUrl + "/lista")

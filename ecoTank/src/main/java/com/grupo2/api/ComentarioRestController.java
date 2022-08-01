@@ -42,7 +42,7 @@ public class ComentarioRestController {
         return comentarioService.findOne(id);
     }
     
-    /**CREAR 
+    /**CREAR
     @PostMapping("/create/{id}")
     public ResponseEntity<Comentario> crearComentario(@PathVariable("id") Long id, @RequestBody Comentario comentario){
     	List<Comentario> comentarios = comentarioService.findAll();

@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 // const baseUrl = "http://localhost:8080/api/dispositivos"
-const baseUrl = "http://18.224.1.156/api/dispositivos"
+const baseUrl = "http://3.143.231.179/api/dispositivos"
 
 //Esta funcion va a funcionar y correr mientras hacemos otras cosas
 const getAll = async(id_usuario) =>{
